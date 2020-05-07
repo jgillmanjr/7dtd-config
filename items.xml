@@ -5316,11 +5316,11 @@ Mesh files no longer used:
 	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 	<property name="Material" value="Mbrass"/>
 	<property name="MeltTimePerUnit" value=".4"/>
-	<property name="Stacknumber" value="300"/> <!-- STK ammo high -->
+	<property name="Stacknumber" value="6000"/> <!-- STK ammo high -->
 	<property name="EconomicValue" value="9"/>
 	<property name="Group" value="Ammo/Weapons"/>
 	<effect_group name="ammo9mmBulletBall" tiered="false">
-		<passive_effect name="EntityDamage" operation="base_set" value="32"/>
+		<passive_effect name="EntityDamage" operation="base_set" value="3200"/>
 		<passive_effect name="BlockDamage" operation="base_set" value="7"/>
 		<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="earth"/>
 		<passive_effect name="DamageModifier" operation="perc_add" value="2" tags="wood"/>
