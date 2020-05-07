@@ -22955,7 +22955,7 @@ NOT the TextureNumber.
 	<property name="ImposterDontBlock" value="true"/>
 	<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
 	<property name="DescriptionKey" value="powerSourceDesc"/>
-	<property name="MaxFuel" value="1000"/>
+	<property name="MaxFuel" value="20000"/>
 	<property name="OutputPerFuel" value="11250"/>
 	<property name="MaxPower" value="12250"/>
 	<property name="OutputPerStack" value="100"/>
