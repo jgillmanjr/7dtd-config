@@ -5651,7 +5651,7 @@ Mesh files no longer used:
 	<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
 	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 	<property name="Material" value="MFuelBarrelMetal"/>
-	<property name="Stacknumber" value="10000"/> <!-- STK resource -->
+	<property name="Stacknumber" value="20000"/> <!-- STK resource -->
 	<property name="FuelValue" value="2"/>
 	<property name="EconomicValue" value="10"/> <!-- oil barrel 500 -->
 	<property name="EconomicBundleSize" value="100"/>
