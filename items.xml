@@ -6564,11 +6564,11 @@ needed?
 	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 	<property name="Material" value="Mbrass"/>
 	<property name="MeltTimePerUnit" value=".4"/>
-	<property name="Stacknumber" value="300"/> <!-- STK ammo high -->
+	<property name="Stacknumber" value="6000"/> <!-- STK ammo high -->
 	<property name="EconomicValue" value="9"/>
 	<property name="Group" value="Ammo/Weapons"/>
 	<effect_group name="ammo9mmBulletBall" tiered="false">
-		<passive_effect name="EntityDamage" operation="base_set" value="32" tags="perkGunslinger,9mmGun"/>
+		<passive_effect name="EntityDamage" operation="base_set" value="320" tags="perkGunslinger,9mmGun"/>
 		<passive_effect name="BlockDamage" operation="base_set" value="7" tags="perkGunslinger"/>
 		<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="earth"/>
 		<passive_effect name="DamageModifier" operation="perc_add" value="2" tags="wood"/>
@@ -7302,7 +7302,7 @@ needed?
 	<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
 	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
 	<property name="Material" value="Mmetal"/>
-	<property name="Stacknumber" value="5"/> <!-- STK ammobundle -->
+	<property name="Stacknumber" value="10"/> <!-- STK ammobundle -->
 	<property name="Weight" value="0"/>
 	<property name="EconomicValue" value="900"/>
 	<property name="Group" value="Ammo/Weapons"/>
@@ -7313,7 +7313,7 @@ needed?
 		<property name="Use_time" value="0"/>
 		<property name="Sound_start" value="close_garbage"/>
 		<property name="Create_item" value="ammo9mmBulletBall"/>
-		<property name="Create_item_count" value="100"/>
+		<property name="Create_item_count" value="300"/>
 		<!--
 		This can spawn multiple item types and quantities. No randomness.
 		<property name="Create_item" value="ammo9mmBulletBall,drinkCanRiverWater"/>
