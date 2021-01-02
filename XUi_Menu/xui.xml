@@ -35,7 +35,7 @@
 			<window name="editingTools" />
 		</window_group>
 		
-		<window_group name="createWorld" controller="CreateWorld">
+		<window_group name="createWorld">
 			<window name="createWorld" />
 		</window_group>
 		
@@ -105,6 +105,10 @@
 		
 		<window_group name="progress" actionSet="false">
 			<window name="progress" />
+		</window_group>
+		
+		<window_group name="loadingScreen" actionSet="false">
+			<window name="loadingScreen" />
 		</window_group>
 		
 		<window_group name="spawnselection">

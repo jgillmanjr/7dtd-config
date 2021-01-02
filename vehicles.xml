@@ -58,6 +58,7 @@ Forces:
 			<property name="class" value="Engine"/>
 			<property name="slot_type" value="engine"/>
 			<property name="fuelKmPerL" value="0.15"/>
+			<property name="foodDrain" value=".002,.00811"/><!-- driving/turbo, gyro -->
 			<property name="gear1" value="
 								500,2500, -1400,800,0, 1500,9999,9999,
 								,
@@ -68,17 +69,15 @@ Forces:
 			<property name="sound_start" value="Vehicles/Gyrocopter/gyrocopter_start"/>
 			<property name="sound_shut_off" value="Vehicles/Gyrocopter/gyrocopter_shutoff"/>
 			<property name="sound_no_fuel_shut_off" value="Vehicles/Gyrocopter/gyrocopter_sputter"/>
-			<property name="parent_part" value="chassis"/>
+			<property name="paint" value="body"/>
 		</property>
 
 		<property class="fuelTank">
 			<property name="class" value="FuelTank"/>
-			<property name="parent_part" value="engine"/>
 			<property name="capacity" value="80"/>
 		</property>
 
 		<property class="handlebars">
-			<property name="parent_part" value="chassis"/>
 			<property name="class" value="Steering"/>
 			<property name="slot_type" value="handlebars"/>
 			<property name="transform" value="Origin"/>
@@ -160,12 +159,10 @@ Forces:
 		</property>
 
 		<property class="wheel1">
-			<property name="parent_part" value="wheel0"/>
 			<property name="torqueScale_motor_brake" value="1, 1"/>
 		</property>
 
 		<property class="wheel2">
-			<property name="parent_part" value="wheel0"/>
 			<property name="torqueScale_motor_brake" value="1, 1"/>
 		</property>
 
@@ -175,7 +172,6 @@ Forces:
 			<property name="slot_type" value="basket"/>
 			<property name="mesh" value="basket"/>
 			<property name="transform" value="basket"/>
-			<property name="parent_part" value="chassis"/>
 		</property>
 
 	</vehicle>
@@ -221,17 +217,14 @@ Forces:
 			<property name="sound_shut_off" value="Vehicles/Suv/suv_shutoff"/>
 			<property name="sound_no_fuel_shut_off" value="Vehicles/Motorbike/motorbike_empty"/>
 			<property name="part_damage_reduction" value="0.5"/>
-			<property name="parent_part" value="chassis"/>
 		</property>
 
 		<property class="fuelTank">
 			<property name="class" value="FuelTank"/>
-			<property name="parent_part" value="engine"/>
 			<property name="capacity" value="400"/>
 		</property>
 
 		<property class="handlebars">
-			<property name="parent_part" value="chassis"/>
 			<property name="class" value="Steering"/>
 			<property name="display_name" value="steering"/>
 			<property name="slot_type" value="handlebars"/>
@@ -255,7 +248,6 @@ Forces:
 			<property name="slot_type" value="basket"/>
 			<property name="mesh" value="basket"/>
 			<property name="transform" value="basket"/>
-			<property name="parent_part" value="chassis"/>
 		</property>
 	</vehicle>
 
@@ -292,6 +284,7 @@ Forces:
 			<property name="slot_type" value="chassis"/>
 			<property name="mesh" value="chassis"/>
 			<property name="transform" value="Origin"/>
+			<property name="paint" value="chassis"/>
 		</property>
 
 		<property class="handlebars">
@@ -303,7 +296,7 @@ Forces:
 			<property name="IKHandLRotation" value="-.8781128, -25.45557, -10.52621"/>
 			<property name="IKHandRPosition" value=".24, .284, -.129"/>
 			<property name="IKHandRRotation" value=".8781128, 25.45557, 10.52621"/>
-			<property name="parent_part" value="chassis"/>
+			<property name="paint" value="handlebar"/>
 		</property>
 
 		<property class="pedals">
@@ -343,7 +336,6 @@ Forces:
 			<property name="slot_type" value="basket"/>
 			<property name="mesh" value="basket"/>
 			<property name="transform" value="basket"/>
-			<property name="parent_part" value="chassis"/>
 		</property>
 
 	</vehicle>
@@ -377,6 +369,7 @@ Forces:
 			<property name="slot_type" value="chassis"/>
 			<property name="mesh" value="chassis"/>
 			<property name="transform" value="Origin"/>
+			<property name="paint" value="chassis"/>
 		</property>
 
 		<property class="handlebars">
@@ -388,7 +381,7 @@ Forces:
 			<property name="IKHandLRotation" value="62.50001, -26.92984, -12.41"/>
 			<property name="IKHandRPosition" value="0.3205, 0.4422, -0.0433"/>
 			<property name="IKHandRRotation" value="52.90001, 8.37004, 6.400046"/>
-			<property name="parent_part" value="chassis"/>
+			<property name="paint" value="handlebar"/>
 		</property>
 
 		<property class="seat0">
@@ -413,7 +406,6 @@ Forces:
 			<property name="slot_type" value="battery"/>
 			<property name="mesh" value="battery"/>
 			<property name="transform" value="battery"/>
-			<property name="parent_part" value="chassis"/>
 		</property>
 
 		<property class="engine">
@@ -423,6 +415,8 @@ Forces:
 			<property name="transform" value="engine_small"/>
 			<property name="particle_transform" value="engine_small/MinibikeParticles/p_engine_fire"/>
 			<property name="fuelKmPerL" value=".4"/>
+			<property name="foodDrain" value=".002,.0122"/><!-- driving/turbo, minibike -->
+				<!-- this value is written to the _vehicleFood cvar and then added to the food/water drain of the player -->
 			<property name="gear1" value="
 								500,2500, -1400,800,0, 1500,9999,9999,
 								Vehicles/Minibike/minibike_accel_OFF,
@@ -433,18 +427,15 @@ Forces:
 			<property name="sound_start" value="Vehicles/Minibike/minibike_start_"/>
 			<property name="sound_shut_off" value="Vehicles/Minibike/minibike_shutoff_"/>
 			<property name="sound_no_fuel_shut_off" value="Vehicles/Minibike/minibike_empty_"/>
-			<property name="parent_part" value="chassis"/>
 		</property>
 
 		<property class="exhaust">
 			<property name="class" value="Exhaust"/>
-			<property name="parent_part" value="engine"/>
 			<property name="particle_transform" value="engine_small/MinibikeParticles/p_engine"/>
 		</property>
 
 		<property class="chain">
 			<property name="mesh" value="chain"/>
-			<property name="parent_part" value="engine"/>
 			<property name="transform" value="chain"/>
 		</property>
 
@@ -454,19 +445,16 @@ Forces:
 			<property name="slot_type" value="basket"/>
 			<property name="mesh" value="basket"/>
 			<property name="transform" value="basket"/>
-			<property name="parent_part" value="chassis"/>
 		</property>
 
 		<property class="headlight">
 			<property name="class" value="Headlight"/>
-			<property name="parent_part" value="handlebars"/>
 			<property name="transform" value="Origin/handlebar_joint/headlight"/>
 			<property name="bright" value=".65"/>
 		</property>
 
 		<property class="fuelTank">
 			<property name="class" value="FuelTank"/>
-			<property name="parent_part" value="engine"/>
 			<property name="capacity" value="40"/>
 		</property>
 
@@ -501,7 +489,6 @@ Forces:
 			<property name="slot_type" value="battery"/>
 			<property name="mesh" value="battery"/>
 			<property name="transform" value="battery"/>
-			<property name="parent_part" value="chassis"/>
 		</property>
 
 		<property class="chassis">
@@ -511,6 +498,7 @@ Forces:
 			<property name="mesh" value="chassis"/>
 			<property name="transform" value="Origin"/>
 			<property name="part_damage_reduction" value="0.5"/>
+			<property name="paint" value="Motorcycle"/>
 		</property>
 
 		<property class="engine">
@@ -520,6 +508,7 @@ Forces:
 			<property name="transform" value="engine_small"/>
 			<property name="particle_transform" value="engine_small/MinibikeParticles/p_engine_fire"/>
 			<property name="fuelKmPerL" value=".2"/>
+			<property name="foodDrain" value=".002,.0101"/><!-- driving/turbo, motorcycle -->
 			<property name="gear1" value="
 								500,2500, -1400,800,0, 700,2000,900,
 								Vehicles/Motorbike/motorbike_accel_1,
@@ -548,12 +537,10 @@ Forces:
 			<property name="sound_start" value="Vehicles/Motorbike/minibike_start_"/>
 			<property name="sound_shut_off" value="Vehicles/Motorbike/minibike_shutoff_"/>
 			<property name="sound_no_fuel_shut_off" value="Vehicles/Motorbike/motorbike_empty"/>
-			<property name="parent_part" value="chassis"/>
 		</property>
 
 		<property class="fuelTank">
 			<property name="class" value="FuelTank"/>
-			<property name="parent_part" value="engine"/>
 			<property name="capacity" value="120"/>
 		</property>
 
@@ -566,7 +553,6 @@ Forces:
 			<property name="IKHandLRotation" value="27.30321, -15.59375, 8.961643"/>
 			<property name="IKHandRPosition" value=".3329, .2552, -.158"/>
 			<property name="IKHandRRotation" value="27.30321, 15.59375, -8.961643"/>
-			<property name="parent_part" value="chassis"/>
 		</property>
 
 		<property class="seat0">
@@ -588,7 +574,6 @@ Forces:
 
 		<property class="headlight">
 			<property name="class" value="Headlight"/>
-			<property name="parent_part" value="handlebars"/>
 			<property name="transform" value="Origin/handlebar_joint/headlight"/>
 			<property name="bright" value=".9"/>
 		</property>
@@ -599,7 +584,6 @@ Forces:
 			<property name="slot_type" value="basket"/>
 			<property name="mesh" value="basket"/>
 			<property name="transform" value="basket"/>
-			<property name="parent_part" value="chassis"/>
 		</property>
 
 	</vehicle>
@@ -621,7 +605,7 @@ Forces:
 		<property name="tiltDampenThreshold" value="8"/>
 		<property name="tiltUpForce" value="0"/>
 		<property name="unstickForce" value="1"/>
-		<property name="velocityMax" value="9, 13"/>
+		<property name="velocityMax" value="9, 14"/>
 		<property name="waterDrag_y_velScale_velMaxScale" value="1.8, .9, .1"/>
 		<property name="wheelPtlScale" value="1"/>
 
@@ -632,7 +616,6 @@ Forces:
 			<property name="slot_type" value="battery"/>
 			<property name="mesh" value="battery"/>
 			<property name="transform" value="battery"/>
-			<property name="parent_part" value="chassis"/>
 		</property>
 
 		<property class="chassis">
@@ -641,6 +624,7 @@ Forces:
 			<property name="slot_type" value="chassis"/>
 			<property name="mesh" value="chassis"/>
 			<property name="transform" value="Origin"/>
+			<property name="paint" value="car_mesh"/>
 		</property>
 
 		<property class="engine">
@@ -650,6 +634,7 @@ Forces:
 			<property name="transform" value="engine_small"/>
 			<property name="particle_transform" value="engine_small/MinibikeParticles/p_engine_fire"/>
 			<property name="fuelKmPerL" value=".1"/>
+			<property name="foodDrain" value=".002,.00811"/><!-- driving/turbo, truck -->
 			<property name="gear1" value="
 								500,2500, -1400,800,0, 700,2200,900,
 								Vehicles/Suv/suv_accel1,
@@ -678,17 +663,14 @@ Forces:
 			<property name="sound_start" value="Vehicles/Suv/suv_startup"/>
 			<property name="sound_shut_off" value="Vehicles/Suv/suv_shutoff"/>
 			<property name="sound_no_fuel_shut_off" value="Vehicles/Motorbike/motorbike_empty"/>
-			<property name="parent_part" value="chassis"/>
 		</property>
 
 		<property class="fuelTank">
 			<property name="class" value="FuelTank"/>
-			<property name="parent_part" value="engine"/>
 			<property name="capacity" value="400"/>
 		</property>
 
 		<property class="handlebars">
-			<property name="parent_part" value="chassis"/>
 			<property name="class" value="Steering"/>
 			<property name="slot_type" value="handlebars"/>
 			<property name="transform" value="Origin/steering_joint"/>
@@ -712,7 +694,6 @@ Forces:
 		</property>
 
 		<property class="wheel0">
-			<property name="parent_part" value="chassis"/>
 			<property name="steerTransform" value="Origin/frontLeftWheelStear_joint"/>
 			<property name="tireTransform" value="Origin/frontLeftWheelStear_joint/frontLeftWheel_joint"/>
 			<property name="tireSuspensionPercent" value="1"/>
@@ -720,7 +701,6 @@ Forces:
 		</property>
 
 		<property class="wheel1">
-			<property name="parent_part" value="chassis"/>
 			<property name="steerTransform" value="Origin/frontRightWheelStear_joint"/>
 			<property name="tireTransform" value="Origin/frontRightWheelStear_joint/frontRightWheel_joint"/>
 			<property name="tireSuspensionPercent" value="1"/>
@@ -728,14 +708,12 @@ Forces:
 		</property>
 
 		<property class="wheel2">
-			<property name="parent_part" value="chassis"/>
 			<property name="tireTransform" value="Origin/backLeftWheelJoint"/>
 			<property name="tireSuspensionPercent" value="1"/>
 			<property name="torqueScale_motor_brake" value="1, 1"/>
 		</property>
 
 		<property class="wheel3">
-			<property name="parent_part" value="chassis"/>
 			<property name="tireTransform" value="Origin/backRightWheelJoint"/>
 			<property name="tireSuspensionPercent" value="1"/>
 			<property name="torqueScale_motor_brake" value="1, 1"/>
@@ -743,7 +721,6 @@ Forces:
 
 		<property class="headlight">
 			<property name="class" value="Headlight"/>
-			<property name="parent_part" value="chassis"/>
 			<property name="transform" value="Origin/headlight"/>
 			<property name="bright" value=".75"/>
 		</property>
@@ -754,7 +731,6 @@ Forces:
 			<property name="slot_type" value="basket"/>
 			<property name="mesh" value="basket"/>
 			<property name="transform" value="basket"/>
-			<property name="parent_part" value="chassis"/>
 		</property>
 
 	</vehicle>

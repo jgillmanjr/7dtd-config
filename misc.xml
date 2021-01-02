@@ -12,7 +12,7 @@
 			<hold_type id="6" newmodel="false" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />          <!-- 6 mp5 -->
 			<hold_type id="7" newmodel="false" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />          <!-- 7 blocks -->
 			<hold_type id="8" newmodel="false" ray_cast="0" holster="0" unholster="0.2" />                            <!-- 8 not used -->
-			<hold_type id="9" newmodel="false" ray_cast="0.83" ray_cast_moving="0.86" holster="0" unholster="0.2" />  <!-- 9 hand zombie -->
+			<hold_type id="9" newmodel="false" ray_cast="0" ray_cast_moving="0" holster="0" unholster="0.2" />        <!-- 9 hand zombie -->
 			<hold_type id="10" newmodel="false" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 10 rocket launcher -->
 			<hold_type id="11" newmodel="false" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 11 sniper rifle -->
 			<hold_type id="12" newmodel="false" ray_cast="0.46" holster="0" unholster="0.2" two_handed="true" />      <!-- 12  torch  -->
@@ -27,7 +27,7 @@
 			<hold_type id="21" newmodel="false" ray_cast="0.5" holster="0" unholster="0.2" />                         <!-- 21 flat hand hold -->
 			<!-- <hold_type id="22" newmodel="false" ray_cast="0.5" holster="0" unholster="0.2" />                         22 sham -->
 			<hold_type id="23" newmodel="false" ray_cast="2.0" holster="0" unholster="0.2" />                         <!-- 23 stews, bowl -->
-			<hold_type id="24" newmodel="false" ray_cast="0.3" holster="0" unholster="0.2" />                         <!-- 24 hand zombie 02 crawler -->
+			<hold_type id="24" newmodel="false" ray_cast="0" holster="0" unholster="0.2" />                           <!-- 24 hand zombie 02 crawler -->
 			<hold_type id="25" newmodel="false" ray_cast="0.3" holster="0" unholster="0.2" />                         <!-- 25 pipe bomb -->
 			<!-- "Sway Off" is hardcoded for hold types 26, 27, 53 -->
 			<hold_type id="26" newmodel="false" ray_cast="0.3" holster="0" unholster="0.2" two_handed="true" />       <!-- 26 crossbow -->
@@ -72,6 +72,14 @@
 			<hold_type id="69" newmodel="false" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 69 advanced compound crossbow -->
 			<hold_type id="70" newmodel="false" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 70 knuckle wraps -->
 			<hold_type id="71" newmodel="false" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 71 tactical assault rifle -->
+			<hold_type id="72" newmodel="false" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 72 ratchet -->
+			<hold_type id="73" newmodel="false" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 73 junk sledge -->
+			<hold_type id="74" newmodel="false" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 74 impact driver -->
+			<hold_type id="75" newmodel="false" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 75 desert eagle -->
+			<hold_type id="76" newmodel="false" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 76 auto shotgun -->
+			<hold_type id="77" newmodel="false" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 77 sharp shooter rifle -->
+			<hold_type id="78" newmodel="false" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 78 junk drone -->
+			<hold_type id="79" newmodel="false" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 79 knuckles spiked -->
 		</animation>
     <!--
          Add noisy sounds here

@@ -38,7 +38,7 @@ UMA Slots
 GENERAL computational order for determining effects and their magnitude, order of operations (OOO)
 Weather survival / temperature rebalance
 Items can be excluded from underwater use.
-How armor works in A14
+How armor works in A19
 (Weapon) Degradation rate:
 Ballistic weapons with bullet drop.
 File: RECIPES.XML
@@ -720,15 +720,29 @@ That makes the system modular and gives me fewer headaches.
 	0054	cube with 4 baseboard
 	0055	cube wit stone applications, cornerstone
 
+	00561	cube_trim_half_split			  
+	00562	cube_trim_half_split_diagonal		  
+	00563	cube_trim_half_split_4sided		  
+	00564	cube_trim_quarter_edge			  
+	00565	cube_trim_quarter_edge_twosided		  
+	00566	cube_trim_quarter_corner_inside		  
+		cube_trim_quarter_corner_inside_triangle
+	00567	cube_trim_quarter_corner_outside	  
+	00568	cube_trim_quarter_corner_outside_twosided 
+	00569	cube_trim_quarter_corner_outside_triangle 
+
 	0060	half
 	0060	half ctr
 	0061	HalfRampStairs50
 	0062	HalfRampStairs50Filler
 	0063	woodHalfCNRInside2
+	0064	cube_half_trim_half_split
 	0070	quarter
 	0071	CTRQuarter
 	0080	q corner
 	0090	q 3way
+	0091	Half3Quarter, half_inside_corner
+	0092	QuarterCNRQuarterPlate, wedge_tip_stairs_quarter_pole
 
 	0105	quarter S Ctr
 
@@ -738,6 +752,9 @@ That makes the system modular and gives me fewer headaches.
 	0140	1/8
 	0142	1/8 CTR
 	0150	plate
+	0150	Plate_pole
+	0151	corner_round_plate
+	0152	plate_corner, 2PlateCorner
 	0160	ctr plate
 	0170	half plate
 	0171	plate offset
@@ -747,6 +764,7 @@ That makes the system modular and gives me fewer headaches.
 	0200	ramp
 	0201    ramp incline
 	0202    ramp incline fillers & corners
+	0204	cube_trim_quarter_ramp	
 	0210	full corner
 	0220	inside corner
 	0230	ramp corner  cnrramp
@@ -780,6 +798,7 @@ That makes the system modular and gives me fewer headaches.
 	0440	wedge incline
 
 	0480	cnr round
+	0481	cube_trim_corner_round1m
 	0490	 top
 	0500	arch
 	0505	Tunnel 3m Center/Corner
@@ -1555,61 +1574,13 @@ If you wear armor (or anything), the AVERAGE protection value of all "connected"
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-How armor works in A14+ (or A15 if it's not done in time! No promises!):
+How armor works in A19+
 
-Major redesign here that cost a lot of brain juice. And tinkering with graphs and mockups.
-And conferences. And maybe I should just tell you how it works. ;)
+We are not doing localised damage. All armor pieces get hit simultaneously.
 
-Several slots like head or chest have multiple UI slots attached but are still only one hit location.
-For the Head hit location you got  Head + Face + Eyes slots.
+If you get hit for 30 damage and your armor absorbs 12 of that then your armor is hit for 12 durability damage.
 
-These used to be a horrible PITA for balancing because if you stack all those values you either
-shoot balancing straight to lala-land or have to adjust armor to seriously screwy values.
-So we did it right.
-You can now mod any armor/cloth item in any slot and it will be used / degraded based on it's
-stats and protection value by the system. This clear up 95% of the armor modding/balancing headaches.
-
-
-For the Head hit location you got  Head + Face + Eyes slots.
-If you are hit in the head the armor value to protect you against that hit is the *highest* armor value in *any* of these 3 slots.
-In most cases this will obviously be the helmet but if it breaks or you wear none at all, your bandana may be "the" armor value for the head hit location.
-In the early game that means that cloth items may actually *do something*. If not much.
-
-For the chest this actually makes more sense because your looted leather coat *could* be better protection than your cloth or plant fiber armor.
-The system simply pulls the highest protection value from all "connected" slots and uses that.
-
-
-Ranged hits:
-Ranged hits are applied per location. Someone shoots you in the head, *a* head slot is going to take the degradation hit.
-The choice is made like above. If you wear a plant fiber hat and a bandana, there's about an equal chance for either to take the durability hit.
-If you wear a "real" helmet it's almost always going to take the durability hit due to it's higher protection value.
-The protection value that "counts" is still the highest of either. No stacking.
-
-
-Melee / explosive hits:
-The protection value average on the character page actually means something! (Bet you didn't see that coming!)
-
-This is your protection value against *all* melee hits. You can not just skip leg or boot slots "because you never get hit there".
-That would bring down your average.
-
-The armor value that "counts" in each of the 5 hit locations is calculated like above.
-Highest value in a connected slot is "it". In the chest slot that will typically be your chest
-armor because armor pieces have much higher protection than generic clothing.
-
-The average is then taken of the highest value in those 5 locations.
-
-The armor degradation from melee / explosive hits is applied to a completely random item,
-*weighed* by each item's protection value.
-If you wear iron armor and some cloth items, the iron armor is almost always going to take the hit...
-until it is busted up so much that your cloth armor has a noticeable protection value in comparison.
-(it is set up like loot probabilities)
-However, no matter what you wear, every slot always has a chance to be picked.
-
-
-Do include Kinyajuu in your evening prayers because there was no way in hell I could have done this without him.
-We cooked up the design and got it approved against the evil forces of cumulative armor protection.
-It was a hard fight but it was a worthy cause.
-Now balancing armor values is all rainbows and unicorns. Seriously.
+If you wear 5 armor pieces then the damage is split among them, so 2.4 (rounded up to 3) per piece.
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -2762,6 +2733,7 @@ here with a default description for the entire group.
 	<property name="CreativeMode" value="Player"/>
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property name="CanPickup" value="true" />
 	<property class="UpgradeBlock"> <property name="ToBlock" value="woodNewBlockID" /> </property>
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
@@ -2778,6 +2750,7 @@ here with a default description for the entire group.
 	<property name="Extends" value="woodMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="rWoodNewBlockID" /> </property>
 	<property name="DowngradeBlock" value="solidWoodFrameNewBlockID" />
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
@@ -2787,17 +2760,9 @@ here with a default description for the entire group.
 	<property name="Extends" value="rWoodMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
-	<property class="UpgradeBlock"> <property name="ToBlock" value="rWoodMetalNewBlockID" /> </property>
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
+	<property class="UpgradeBlock"> <property name="ToBlock" value="cobblestoneNewBlockID" /> </property>
 	<property name="DowngradeBlock" value="woodNewBlockID" />
-	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
-</block>
-
-<block name="rWoodMetalNewBlockID">
-	<property name="Extends" value="rWoodMetalMaster" />
-	<property name="Shape" value="New" />
-	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
-	<property class="UpgradeBlock"> <property name="ToBlock" value="scrapIronNewBlockID" /> </property>
-	<property name="DowngradeBlock" value="rWoodNewBlockID" />
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
 </block>
 
@@ -2806,6 +2771,7 @@ here with a default description for the entire group.
 	<property name="CreativeMode" value="Player"/>
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property name="CanPickup" value="true" />
 	<property class="UpgradeBlock"> <property name="ToBlock" value="scrapIronNewBlockID" /> </property>
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
@@ -2822,6 +2788,7 @@ here with a default description for the entire group.
 	<property name="Extends" value="scrapIronMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="rScrapIronNewBlockID" /> </property>
 	<property name="DowngradeBlock" value="solidScrapIronFrameNewBlockID" />
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
@@ -2831,6 +2798,7 @@ here with a default description for the entire group.
 	<property name="Extends" value="rScrapIronMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="pouredConcreteNewBlockID" /> </property>
 	<property name="DowngradeBlock" value="scrapIronNewBlockID" />
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
@@ -2841,6 +2809,7 @@ here with a default description for the entire group.
 	<property name="CreativeMode" value="Player"/>
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property name="UpgradeRated.ToBlock" value="concreteNewBlockID" />
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
 </block>
@@ -2849,6 +2818,7 @@ here with a default description for the entire group.
 	<property name="Extends" value="concreteMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="pouredRConcreteNewBlockID" /> </property>
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
 </block>
@@ -2859,6 +2829,7 @@ here with a default description for the entire group.
 	<property name="CustomIcon" value="pouredConcreteNewBlockID" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property name="UpgradeRated.ToBlock" value="rConcreteNewBlockID" />
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
 </block>
@@ -2867,8 +2838,8 @@ here with a default description for the entire group.
 	<property name="Extends" value="rConcreteMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="steelNewBlockID" /> </property>
-	<property name="DowngradeBlock" value="concreteNewBlockID" />
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
 </block>
 
@@ -2876,8 +2847,7 @@ here with a default description for the entire group.
 	<property name="Extends" value="steelMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
-	<property name="Texture" value="356" />
-	<property class="UpgradeBlock"> <property name="ToBlock" value="stainlessSteelNewBlockID" /> </property>
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property name="DowngradeBlock" value="rConcreteNewBlockID" />
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
 </block>
@@ -2886,6 +2856,7 @@ here with a default description for the entire group.
 	<property name="Extends" value="stainlessSteelMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property name="DowngradeBlock" value="rConcreteNewBlockID" />
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
 </block>
@@ -2894,6 +2865,7 @@ here with a default description for the entire group.
 	<property name="Extends" value="brickMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="pouredConcreteNewBlockID" /> </property>
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
 </block>
@@ -2902,6 +2874,7 @@ here with a default description for the entire group.
 	<property name="Extends" value="flagstoneMaster"/>
 	<property name="Shape" value="New"/>
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="cobblestoneNewBlockID"/> </property>
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
 </block>
@@ -2910,6 +2883,7 @@ here with a default description for the entire group.
 	<property name="Extends" value="cobblestoneMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="pouredConcreteNewBlockID" /> </property>
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
 </block>
@@ -2949,26 +2923,26 @@ here with a default description for the entire group.
 
 
 
-shapeNewBlockIDGroupDesc	blocks	Block	New	InsertLongBlatherDescription
+shapeNewBlockIDGroupDesc	blocks	Block					InsertLongBlatherDescription
 Tell me more. This shape is relevant to my interests.
 
-brickNewBlockID	blocks	Block	New	Brick BlockLongBlatherName
-cobblestoneNewBlockID	blocks	Block	New	Cobblestone BlockLongBlatherName
-concreteNewBlockID	blocks	Block	New	Concrete BlockLongBlatherName
-flagstoneNewBlockID	blocks	Block	New	Flagstone BlockLongBlatherName
-pouredConcreteNewBlockID	blocks	Block	New	Wet Concrete BlockLongBlatherName
-rConcreteNewBlockID	blocks	Block	New	R Concrete BlockLongBlatherName
-rScrapIronNewBlockID	blocks	Block	New	R Iron BlockLongBlatherName
-rWoodMetalNewBlockID	blocks	Block	New	R Wood Metal BlockLongBlatherName
-rWoodNewBlockID	blocks	Block	New	R Wood BlockLongBlatherName
-scrapIronFrameNewBlockID	blocks	Block	New	Iron Frame BlockLongBlatherName
-scrapIronNewBlockID	blocks	Block	New	Iron BlockLongBlatherName
-solidScrapIronFrameNewBlockID	blocks	Block	New	S Iron Frame BlockLongBlatherName
-solidWoodFrameNewBlockID	blocks	Block	New	S Wood Frame BlockLongBlatherName
-stainlessSteelNewBlockID	blocks	Block	New	St Steel BlockLongBlatherName
-steelNewBlockID	blocks	Block	New	Steel BlockLongBlatherName
-woodFrameNewBlockID	blocks	Block	New	Wood Frame BlockLongBlatherName
-woodNewBlockID	blocks	Block	New	Wood BlockLongBlatherName
+brickNewBlockID	blocks	Block					Brick BlockLongBlatherName
+cobblestoneNewBlockID	blocks	Block					Cobblestone BlockLongBlatherName
+concreteNewBlockID	blocks	Block					Concrete BlockLongBlatherName
+flagstoneNewBlockID	blocks	Block					Flagstone BlockLongBlatherName
+pouredConcreteNewBlockID	blocks	Block					Wet Concrete BlockLongBlatherName
+rConcreteNewBlockID	blocks	Block					R Concrete BlockLongBlatherName
+rScrapIronNewBlockID	blocks	Block					R Iron BlockLongBlatherName
+rWoodMetalNewBlockID	blocks	Block					R Wood Metal BlockLongBlatherName
+rWoodNewBlockID	blocks	Block					R Wood BlockLongBlatherName
+scrapIronFrameNewBlockID	blocks	Block					Iron Frame BlockLongBlatherName
+scrapIronNewBlockID	blocks	Block					Iron BlockLongBlatherName
+solidScrapIronFrameNewBlockID	blocks	Block					S Iron Frame BlockLongBlatherName
+solidWoodFrameNewBlockID	blocks	Block					S Wood Frame BlockLongBlatherName
+stainlessSteelNewBlockID	blocks	Block					St Steel BlockLongBlatherName
+steelNewBlockID	blocks	Block					Steel BlockLongBlatherName
+woodFrameNewBlockID	blocks	Block					Wood Frame BlockLongBlatherName
+woodNewBlockID	blocks	Block					Wood BlockLongBlatherName
 
 =====================================================================
 =====================================================================
@@ -2981,6 +2955,7 @@ Without group/shape description. Just the default material desc.
 	<property name="CreativeMode" value="Player"/>
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property name="CanPickup" value="true" />
 	<property class="UpgradeBlock"> <property name="ToBlock" value="woodNewBlockID" /> </property>
 </block>
@@ -2996,6 +2971,7 @@ Without group/shape description. Just the default material desc.
 	<property name="Extends" value="woodMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="rWoodNewBlockID" /> </property>
 	<property name="DowngradeBlock" value="solidWoodFrameNewBlockID" />
 </block>
@@ -3004,16 +2980,9 @@ Without group/shape description. Just the default material desc.
 	<property name="Extends" value="rWoodMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
-	<property class="UpgradeBlock"> <property name="ToBlock" value="rWoodMetalNewBlockID" /> </property>
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
+	<property class="UpgradeBlock"> <property name="ToBlock" value="cobblestoneNewBlockID" /> </property>
 	<property name="DowngradeBlock" value="woodNewBlockID" />
-</block>
-
-<block name="rWoodMetalNewBlockID">
-	<property name="Extends" value="rWoodMetalMaster" />
-	<property name="Shape" value="New" />
-	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
-	<property class="UpgradeBlock"> <property name="ToBlock" value="scrapIronNewBlockID" /> </property>
-	<property name="DowngradeBlock" value="rWoodNewBlockID" />
 </block>
 
 <block name="scrapIronFrameNewBlockID">
@@ -3021,6 +2990,7 @@ Without group/shape description. Just the default material desc.
 	<property name="CreativeMode" value="Player"/>
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property name="CanPickup" value="true" />
 	<property class="UpgradeBlock"> <property name="ToBlock" value="scrapIronNewBlockID" /> </property>
 </block>
@@ -3036,6 +3006,7 @@ Without group/shape description. Just the default material desc.
 	<property name="Extends" value="scrapIronMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="rScrapIronNewBlockID" /> </property>
 	<property name="DowngradeBlock" value="solidScrapIronFrameNewBlockID" />
 </block>
@@ -3044,6 +3015,7 @@ Without group/shape description. Just the default material desc.
 	<property name="Extends" value="rScrapIronMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="pouredConcreteNewBlockID" /> </property>
 	<property name="DowngradeBlock" value="scrapIronNewBlockID" />
 </block>
@@ -3053,6 +3025,7 @@ Without group/shape description. Just the default material desc.
 	<property name="CreativeMode" value="Player"/>
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property name="UpgradeRated.ToBlock" value="concreteNewBlockID" />
 </block>
 
@@ -3060,6 +3033,7 @@ Without group/shape description. Just the default material desc.
 	<property name="Extends" value="concreteMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="pouredRConcreteNewBlockID" /> </property>
 </block>
 
@@ -3069,6 +3043,7 @@ Without group/shape description. Just the default material desc.
 	<property name="CustomIcon" value="pouredConcreteNewBlockID" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property name="UpgradeRated.ToBlock" value="rConcreteNewBlockID" />
 </block>
 
@@ -3076,16 +3051,16 @@ Without group/shape description. Just the default material desc.
 	<property name="Extends" value="rConcreteMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="steelNewBlockID" /> </property>
-	<property name="DowngradeBlock" value="concreteNewBlockID" />
 </block>
 
 <block name="steelNewBlockID">
 	<property name="Extends" value="steelMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property name="Texture" value="356" />
-	<property class="UpgradeBlock"> <property name="ToBlock" value="stainlessSteelNewBlockID" /> </property>
 	<property name="DowngradeBlock" value="rConcreteNewBlockID" />
 </block>
 
@@ -3093,6 +3068,7 @@ Without group/shape description. Just the default material desc.
 	<property name="Extends" value="stainlessSteelMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property name="DowngradeBlock" value="rConcreteNewBlockID" />
 </block>
 
@@ -3100,6 +3076,7 @@ Without group/shape description. Just the default material desc.
 	<property name="Extends" value="brickMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="pouredConcreteNewBlockID" /> </property>
 </block>
 
@@ -3107,6 +3084,7 @@ Without group/shape description. Just the default material desc.
 	<property name="Extends" value="flagstoneMaster"/>
 	<property name="Shape" value="New"/>
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="cobblestoneNewBlockID"/> </property>
 </block>
 
@@ -3114,12 +3092,13 @@ Without group/shape description. Just the default material desc.
 	<property name="Extends" value="cobblestoneMaster" />
 	<property name="Shape" value="New" />
 	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
 	<property class="UpgradeBlock"> <property name="ToBlock" value="pouredConcreteNewBlockID" /> </property>
 </block>
 
 
 
-
+NOT UPDATED to take shape variant blocks into account!
 
 <recipe name="woodFrameNewBlockID" count="1">
 	<ingredient name="wood" count="2"/>
@@ -3150,23 +3129,22 @@ Without group/shape description. Just the default material desc.
 	<ingredient name="cobblestones" count="4"/>
 </recipe>
 
-brickNewBlockID	blocks	Block	New	Brick BlockLongBlatherName
-cobblestoneNewBlockID	blocks	Block	New	Cobblestone BlockLongBlatherName
-concreteNewBlockID	blocks	Block	New	Concrete BlockLongBlatherName
-flagstoneNewBlockID	blocks	Block	New	Flagstone BlockLongBlatherName
-pouredConcreteNewBlockID	blocks	Block	New	Wet Concrete BlockLongBlatherName
-rConcreteNewBlockID	blocks	Block	New	R Concrete BlockLongBlatherName
-rScrapIronNewBlockID	blocks	Block	New	R Iron BlockLongBlatherName
-rWoodMetalNewBlockID	blocks	Block	New	R Wood Metal BlockLongBlatherName
-rWoodNewBlockID	blocks	Block	New	R Wood BlockLongBlatherName
-scrapIronFrameNewBlockID	blocks	Block	New	Iron Frame BlockLongBlatherName
-scrapIronNewBlockID	blocks	Block	New	Iron BlockLongBlatherName
-solidScrapIronFrameNewBlockID	blocks	Block	New	S Iron Frame BlockLongBlatherName
-solidWoodFrameNewBlockID	blocks	Block	New	S Wood Frame BlockLongBlatherName
-stainlessSteelNewBlockID	blocks	Block	New	St Steel BlockLongBlatherName
-steelNewBlockID	blocks	Block	New	Steel BlockLongBlatherName
-woodFrameNewBlockID	blocks	Block	New	Wood Frame BlockLongBlatherName
-woodNewBlockID	blocks	Block	New	Wood BlockLongBlatherName
+brickNewBlockID	blocks	Block					Brick BlockLongBlatherName
+cobblestoneNewBlockID	blocks	Block					Cobblestone BlockLongBlatherName
+concreteNewBlockID	blocks	Block					Concrete BlockLongBlatherName
+flagstoneNewBlockID	blocks	Block					Flagstone BlockLongBlatherName
+pouredConcreteNewBlockID	blocks	Block					Wet Concrete BlockLongBlatherName
+rConcreteNewBlockID	blocks	Block					R Concrete BlockLongBlatherName
+rScrapIronNewBlockID	blocks	Block					R Iron BlockLongBlatherName
+rWoodNewBlockID	blocks	Block					R Wood BlockLongBlatherName
+scrapIronFrameNewBlockID	blocks	Block					Iron Frame BlockLongBlatherName
+scrapIronNewBlockID	blocks	Block					Iron BlockLongBlatherName
+solidScrapIronFrameNewBlockID	blocks	Block					S Iron Frame BlockLongBlatherName
+solidWoodFrameNewBlockID	blocks	Block					S Wood Frame BlockLongBlatherName
+stainlessSteelNewBlockID	blocks	Block					St Steel BlockLongBlatherName
+steelNewBlockID	blocks	Block					Steel BlockLongBlatherName
+woodFrameNewBlockID	blocks	Block					Wood Frame BlockLongBlatherName
+woodNewBlockID	blocks	Block					Wood BlockLongBlatherName
 
 =====================================================================
 =====================================================================
@@ -3197,7 +3175,17 @@ Temp short list to ration block IDs:
 	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
 </block>
 
-brickNewBlockID	blocks	Block	New	Brick BlockLongBlatherName
-concreteNewBlockID	blocks	Block	New	Concrete BlockLongBlatherName
-woodNewBlockID	blocks	Block	New	Wood BlockLongBlatherName
+<block name="corrugatedMetalNewBlockID">
+	<property name="Extends" value="corrugatedMetalNoUpgradeMaster" />
+	<property name="Shape" value="New" />
+	<property name="Model" value="newBlockModel" /> <property name="Place" value="TowardsPlacerInverted" />
+	<property name="SortOrder2" value="NewShapeIndex"/> <!-- SortShape -->
+	<property name="DescriptionKey" value="shapeNewBlockIDGroupDesc"/>
+</block>
 
+
+brickNewBlockID	blocks	Block					Brick BlockLongBlatherName
+concreteNewBlockID	blocks	Block					Concrete BlockLongBlatherName
+woodNewBlockID	blocks	Block					Wood BlockLongBlatherName
+corrugatedMetalNewBlockID	blocks	Block					Corr. Metal BlockLongBlatherName
+shapeNewBlockIDGroupDesc	blocks	Block					Lorem Ipsum

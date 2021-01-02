@@ -23,8 +23,8 @@
 
 
 	Quest rewards:
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" value="1" ischosen="true" isfixed="true"/>
-		<reward type="LootItem" id="groupQuestMelee" value="2" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestWeapons" value="1" ischosen="true" isfixed="true"/>
+		<reward type="LootItem" id="groupQuestTools" value="2" ischosen="true"/>
 
 		isfixed="true" : This reward is always picked (top of the list), not randomly. Other rewards are shuffled.
 		ischosen="true" : this reward is available for selection by the player, number of picks depend on the passive
@@ -39,8 +39,7 @@
 		groupQuestAmmo (*)		random but higher ammo quantity than in general loot
 		groupQuestArmor		all armor excluding cloth/scrap
 		groupQuestMedical (*)	migher quality/quantity medical items and drugs
-		groupQuestMelee		all melee
-		groupQuestRanged		all ranged
+		groupQuestWeapons		all weapons
 		groupQuestSchematics (*)	schematics like the sham secret recipe
 		groupQuestTools		tools, not stone
 		groupQuestMods (*)		all available mods
@@ -49,10 +48,9 @@
 	A (item) reward type also uses a scaling factor "value".
 		If value = 1 through 6, the reward will be this tier but can be randomly 1 tier lower.
 							At higher tiers, low level loot like iron tools will no longer be offered.
-		If value = 11 through 16, the reward will be item tier 1-6 AND have a higher probability for "better" loot as in steel tools instead of iron.
 -->
 
-<quests max_quest_tier="5">
+<quests max_quest_tier="5" quests_per_tier="10">
 	<!-- Basic Survival 1 - Craft a Bedroll -->
 	<quest id="quest_BasicSurvival1">
 		<property name="group_name_key" value="quest_BasicSurvival"/>
@@ -99,7 +97,7 @@
 
 		<objective type="Craft">
 			<property name="phase" value="2"/>
-			<property name="item" value="meleeToolStoneAxe"/>
+			<property name="item" value="meleeToolRepairT0StoneAxe"/>
 			<property name="count" value="1"/>
 		</objective>
 
@@ -155,7 +153,7 @@
 		<property name="shareable" value="false"/>
 
 		<objective type="FetchKeep" id="resourceWood" value="5" phase="1"/>
-		<objective type="Craft" id="meleeClubWood" value="1" phase="2"/>
+		<objective type="Craft" id="meleeWpnClubT0WoodenClub" value="1" phase="2"/>
 
 		<reward type="Exp" value="50"/>
 		<reward type="Quest" id="quest_BasicSurvival6"/>
@@ -176,7 +174,7 @@
 		<objective type="FetchKeep" id="resourceYuccaFibers" value="3" phase="1"/>
 		<objective type="FetchKeep" id="resourceFeather" value="1" phase="1"/>
 		<objective type="FetchKeep" id="resourceRockSmall" value="1" phase="1"/>
-		<objective type="Craft" id="gunBowPrimitive" value="1" phase="2"/>
+		<objective type="Craft" id="gunBowT0PrimitiveBow" value="1" phase="2"/>
 		<objective type="Craft" id="ammoArrowStone" value="1" phase="2"/>
 
 		<reward type="Exp" value="50"/>
@@ -237,13 +235,22 @@
 		<property name="difficulty" value="medium"/>
 		<property name="shareable" value="false"/>
 
+
 		<action type="ShowTip" value="quest_WhiteRiverCitizen1_description">
 			<property name="delay" value="3"/>
 		</action>
-		<objective type="Goto" id="trader" value="5" phase="1"/>
+		<objective type="Goto" id="trader" value="5" phase="1">
+			<property name="biome_filter_type" value="OnlyBiome" />
+			<property name="biome_filter" value="pine_forest" />
+			<!-- <property name="biome_filter_type" value="ExcludeBiome" /> -->
+			<!-- <property name="biome_filter" value="wasteland" /> -->
+			<property name="nav_object" value="go_to_trader" />
+		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader" />
+			<property name="use_closest" value="true" />
 		</objective>
 
 		<reward type="Exp" value="500"/>
@@ -263,11 +270,13 @@
 
 		<objective type="RandomGoto" value="500-800" phase="1">
 			<property name="completion_distance" value="50"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="start_mode" value="Create"/>
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<action type="SpawnEnemy" id="zombieScreamer" value="2" phase="3"/>
@@ -322,11 +331,13 @@
 
 		<objective type="RandomGoto" value="500-800" phase="1">
 			<property name="completion_distance" value="50"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="start_mode" value="Create"/>
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<action type="SpawnEnemy" id="zombieNurse" value="5" phase="3"/>
@@ -353,11 +364,13 @@
 
 		<objective type="RandomGoto" value="500-800" phase="1">
 			<property name="completion_distance" value="50"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="start_mode" value="Create"/>
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<action type="SpawnEnemy" id="zombieFatHawaiian" value="5" phase="3"/>
@@ -384,11 +397,13 @@
 
 		<objective type="RandomGoto" value="500-800" phase="1">
 			<property name="completion_distance" value="50"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="start_mode" value="Create"/>
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<action type="SpawnEnemy" id="animalZombieDog" value="5" phase="3"/>
@@ -416,11 +431,13 @@
 
 		<objective type="RandomGoto" value="500-800" phase="1">
 			<property name="completion_distance" value="50"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="start_mode" value="Create"/>
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<action type="SpawnEnemy" id="zombieSpider" value="5" phase="3"/>
@@ -448,11 +465,13 @@
 
 		<objective type="RandomGoto" value="500-800" phase="1">
 			<property name="completion_distance" value="50"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="start_mode" value="Create"/>
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<action type="SpawnEnemy" id="zombieArlene" value="2" phase="3"/>
@@ -486,11 +505,13 @@
 
 		<objective type="RandomGoto" value="500-800" phase="1">
 			<property name="completion_distance" value="50"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="start_mode" value="Create"/>
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<action type="SpawnEnemy" id="zombieBoe" value="2" phase="3"/>
@@ -526,11 +547,13 @@
 
 		<objective type="RandomGoto" value="500-800" phase="1">
 			<property name="completion_distance" value="50"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="start_mode" value="Create"/>
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<action type="SpawnEnemy" id="zombieSpider" value="2" phase="3"/>
@@ -566,20 +589,23 @@
 
 		<objective type="RandomGoto" value="500-800" phase="1">
 			<property name="completion_distance" value="50"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="start_mode" value="Create"/>
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<action type="SpawnEnemy" id="zombieSnow" value="5" phase="3"/>
 
 		<objective type="ZombieKill" id="zombieSnow" value="3" phase="3"/>
 
-		<requirement type="Group" id="requirementGroupFireaxe" value="OR" phase="3">
-			<requirement type="Holding" id="meleeToolFireaxeIron"/>
-			<requirement type="Holding" id="meleeToolFireaxeSteel"/>
+		<requirement type="Group" id="requirementGroupAxe" value="OR" phase="3">
+			<requirement type="Holding" id="meleeToolRepairT0StoneAxe"/>
+			<requirement type="Holding" id="meleeToolAxeT1IronFireaxe"/>
+			<requirement type="Holding" id="meleeToolAxeT2SteelAxe"/>
 		</requirement>
 
 		<objective type="InteractWithNPC">
@@ -603,11 +629,13 @@
 
 		<objective type="RandomGoto" value="500-800" phase="1">
 			<property name="completion_distance" value="50"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="start_mode" value="Create"/>
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<action type="SpawnEnemy" id="zombieFootballPlayer" value="5" phase="3"/>
@@ -635,11 +663,13 @@
 
 		<objective type="RandomGoto" value="500-800" phase="1">
 			<property name="completion_distance" value="50"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="start_mode" value="Create"/>
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<action type="SpawnEnemy" id="zombieCheerleader" value="5" phase="3"/>
@@ -667,11 +697,13 @@
 
 		<objective type="RandomGoto" value="500-800" phase="1">
 			<property name="completion_distance" value="50"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="start_mode" value="Create"/>
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<action type="SpawnEnemy" id="zombieSoldier" value="5" phase="3"/>
@@ -699,11 +731,13 @@
 
 		<objective type="RandomGoto" value="500-800" phase="1">
 			<property name="completion_distance" value="50"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="start_mode" value="Create"/>
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<action type="SpawnEnemy" id="zombieUtilityWorker" value="5" phase="3"/>
@@ -731,8 +765,9 @@
 		<objective type="AnimalKill" id="animalRabbit" value="5"/>
 
 		<requirement type="Group" id="requirementGroupShotgun" value="OR" phase="1">
-			<requirement type="Holding" id="gunDoubleBarrelShotgun"/>
-			<requirement type="Holding" id="gunPumpShotgun"/>
+			<requirement type="Holding" id="gunShotgunT1DoubleBarrel"/>
+			<requirement type="Holding" id="gunShotgunT2PumpShotgun"/>
+			<requirement type="Holding" id="gunShotgunT3AutoShotgun"/>
 		</requirement>
 
 
@@ -756,7 +791,7 @@
 
 		<objective type="AnimalKill" id="animalChicken" value="5"/>
 
-		<requirement type="Holding" id="gunToolNailgun"/>
+		<requirement type="Holding" id="meleeToolRepairT3Nailgun"/>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="2"/>
@@ -866,8 +901,15 @@
 		<property name="shareable" value="false"/>
 
 		<objective type="TreasureChest">
-			<property name="block" value="treasureChest"/>
-			<property name="distance" value="1000-1750"/>
+			<property name="block" value="cntBuriedLootStashChest"/>
+			<property name="alt_block" value="cntBuriedLootStashChestInsecure"/>
+			<property name="distance" value="500-1250"/>
+			<property name="default_radius" value="9"/>
+			<property name="nav_object" value="treasure" />
+			<property name="direct_nav_object" value="treasure_direct" />
+			<property name="blocks_per_reduction" value="10" />
+				<!-- Perk/item can reduce this by 8. Change perk/item to a % based effect if a blocks_per_reduction less than 10 that is desired. -->
+			<property name="radius_reduction_sound" value="ui_radius_shrink" />
 		</objective>
 	</quest>
 
@@ -883,8 +925,14 @@
 		<property name="shareable" value="false"/>
 
 		<objective type="TreasureChest">
-			<property name="block" value="treasureChest"/>
-			<property name="distance" value="1000-1750"/>
+			<property name="block" value="cntBuriedLootStashChest"/>
+			<property name="alt_block" value="cntBuriedLootStashChestInsecure"/>
+			<property name="distance" value="500-1250"/>
+			<property name="default_radius" value="9"/>
+			<property name="nav_object" value="treasure" />
+			<property name="direct_nav_object" value="treasure_direct" />
+			<property name="blocks_per_reduction" value="10" />
+			<property name="radius_reduction_sound" value="ui_radius_shrink" />
 		</objective>
 	</quest>
 
@@ -900,8 +948,14 @@
 		<property name="shareable" value="false"/>
 
 		<objective type="TreasureChest">
-			<property name="block" value="treasureChest"/>
-			<property name="distance" value="1000-1750"/>
+			<property name="block" value="cntBuriedLootStashChest"/>
+			<property name="alt_block" value="cntBuriedLootStashChestInsecure"/>
+			<property name="distance" value="500-1250"/>
+			<property name="default_radius" value="9"/>
+			<property name="nav_object" value="treasure" />
+			<property name="direct_nav_object" value="treasure_direct" />
+			<property name="blocks_per_reduction" value="10" />
+			<property name="radius_reduction_sound" value="ui_radius_shrink" />
 		</objective>
 	</quest>
 
@@ -917,8 +971,14 @@
 		<property name="shareable" value="false"/>
 
 		<objective type="TreasureChest">
-			<property name="block" value="treasureChest"/>
-			<property name="distance" value="1000-1750"/>
+			<property name="block" value="cntBuriedLootStashChest"/>
+			<property name="alt_block" value="cntBuriedLootStashChestInsecure"/>
+			<property name="distance" value="500-1250"/>
+			<property name="default_radius" value="9"/>
+			<property name="nav_object" value="treasure" />
+			<property name="direct_nav_object" value="treasure_direct" />
+			<property name="blocks_per_reduction" value="10" />
+			<property name="radius_reduction_sound" value="ui_radius_shrink" />
 		</objective>
 	</quest>
 
@@ -934,8 +994,14 @@
 		<property name="shareable" value="false"/>
 
 		<objective type="TreasureChest">
-			<property name="block" value="treasureChest"/>
-			<property name="distance" value="1000-1750"/>
+			<property name="block" value="cntBuriedLootStashChest"/>
+			<property name="alt_block" value="cntBuriedLootStashChestInsecure"/>
+			<property name="distance" value="500-1250"/>
+			<property name="default_radius" value="9"/>
+			<property name="nav_object" value="treasure" />
+			<property name="direct_nav_object" value="treasure_direct" />
+			<property name="blocks_per_reduction" value="10" />
+			<property name="radius_reduction_sound" value="ui_radius_shrink" />
 		</objective>
 	</quest>
 
@@ -951,8 +1017,14 @@
 		<property name="shareable" value="false"/>
 
 		<objective type="TreasureChest">
-			<property name="block" value="treasureChest"/>
-			<property name="distance" value="1000-1750"/>
+			<property name="block" value="cntBuriedLootStashChest"/>
+			<property name="alt_block" value="cntBuriedLootStashChestInsecure"/>
+			<property name="distance" value="500-1250"/>
+			<property name="default_radius" value="9"/>
+			<property name="nav_object" value="treasure" />
+			<property name="direct_nav_object" value="treasure_direct" />
+			<property name="blocks_per_reduction" value="10" />
+			<property name="radius_reduction_sound" value="ui_radius_shrink" />
 		</objective>
 	</quest>
 
@@ -968,8 +1040,14 @@
 		<property name="shareable" value="false"/>
 
 		<objective type="TreasureChest">
-			<property name="block" value="treasureChest"/>
-			<property name="distance" value="1000-1750"/>
+			<property name="block" value="cntBuriedLootStashChest"/>
+			<property name="alt_block" value="cntBuriedLootStashChestInsecure"/>
+			<property name="distance" value="500-1250"/>
+			<property name="default_radius" value="9"/>
+			<property name="nav_object" value="treasure" />
+			<property name="direct_nav_object" value="treasure_direct" />
+			<property name="blocks_per_reduction" value="10" />
+			<property name="radius_reduction_sound" value="ui_radius_shrink" />
 		</objective>
 	</quest>
 
@@ -992,10 +1070,14 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="biome_filter_type" value="ExcludeBiome" />
+			<property name="biome_filter" value="wasteland" />
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="FetchFromContainer">
@@ -1003,6 +1085,7 @@
 			<property name="quest_item_ID" value="1"/>
 			<property name="item_count" value="1"/>
 			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container" />
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1012,21 +1095,25 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="2500"/>
 		<reward type="Item" id="casinoCoin" value="330"/>
 
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" isfixed="true" value="1"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="1"/>
+		<!--<reward type="LootItem" id="groupQuestTools" ischosen="true" isfixed="true" value="1"/>-->
+		<!--<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="1"/>-->
 		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="1"/>
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" value="1"/>
+		<!--<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="1"/>-->
 		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="1"/>
 		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="1"/>
 	</quest>
 
 	<quest id="tier2_fetch">
@@ -1048,10 +1135,12 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="FetchFromContainer">
@@ -1059,6 +1148,7 @@
 			<property name="quest_item_ID" value="1"/>
 			<property name="item_count" value="1"/>
 			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container" />
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1068,10 +1158,12 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="3750"/>
@@ -1080,7 +1172,7 @@
 		<reward type="LootItem" id="groupQuestTools" ischosen="true" isfixed="true" value="2"/>
 		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="2"/>
 		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="2"/>
 		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="2"/>
 		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="2"/>
 	</quest>
@@ -1104,10 +1196,12 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="FetchFromContainer">
@@ -1115,6 +1209,7 @@
 			<property name="quest_item_ID" value="1"/>
 			<property name="item_count" value="1"/>
 			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container" />
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1124,10 +1219,12 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="5000"/>
@@ -1136,7 +1233,7 @@
 		<reward type="LootItem" id="groupQuestTools" ischosen="true" isfixed="true" value="3"/>
 		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="3"/>
 		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="3"/>
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="3"/>
 		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="3"/>
 		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="3"/>
 	</quest>
@@ -1160,10 +1257,12 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="FetchFromContainer">
@@ -1171,6 +1270,7 @@
 			<property name="quest_item_ID" value="1"/>
 			<property name="item_count" value="1"/>
 			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container" />
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1180,10 +1280,12 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="6250"/>
@@ -1192,7 +1294,7 @@
 		<reward type="LootItem" id="groupQuestTools" ischosen="true" isfixed="true" value="4"/>
 		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="4"/>
 		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="4"/>
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="4"/>
 		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="4"/>
 		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="4"/>
 	</quest>
@@ -1216,10 +1318,12 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="FetchFromContainer">
@@ -1227,6 +1331,7 @@
 			<property name="quest_item_ID" value="1"/>
 			<property name="item_count" value="1"/>
 			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container" />
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1236,10 +1341,12 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="12500"/>
@@ -1248,7 +1355,7 @@
 		<reward type="LootItem" id="groupQuestTools" ischosen="true" isfixed="true" value="5"/>
 		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="5"/>
 		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="5"/>
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="5"/>
 		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="5"/>
 		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="5"/>
 	</quest>
@@ -1272,10 +1379,12 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="FetchFromContainer">
@@ -1283,6 +1392,7 @@
 			<property name="quest_item_ID" value="1"/>
 			<property name="item_count" value="1"/>
 			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container" />
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1292,10 +1402,12 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="20000"/>
@@ -1304,7 +1416,7 @@
 		<reward type="LootItem" id="groupQuestTools" ischosen="true" isfixed="true" value="6"/>
 		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="6"/>
 		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="6"/>
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="6"/>
 		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="6"/>
 		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="6"/>
 	</quest>
@@ -1328,14 +1440,19 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="biome_filter_type" value="ExcludeBiome" />
+			<property name="biome_filter" value="wasteland" />
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="ClearSleepers">
 			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1345,22 +1462,26 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="3000"/>
-		<reward type="Item" id="casinoCoin" value="670"/>
+		<reward type="Item" id="casinoCoin" value="800"/>
 
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="2"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="2"/>
-		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/>
-		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="2"/>
-		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="2"/>
-	</quest>
+		<!--<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="1"/>-->
+		<!--<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="1"/>-->
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="1"/>
+		<!--<reward type="LootItem" id="groupQuestTools" ischosen="true" value="1"/>-->
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="1"/>
+			</quest>
 
 	<quest id="tier2_clear">
 		<property name="name_key" value="quest_tier2_clear"/>
@@ -1381,14 +1502,17 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="ClearSleepers">
 			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1398,21 +1522,23 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="4500"/>
-		<reward type="Item" id="casinoCoin" value="1130"/>
+		<reward type="Item" id="casinoCoin" value="1350"/>
 
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="3"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="3"/>
-		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="3"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="3"/>
-		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="3"/>
-		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="2"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="2"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="2"/>
 	</quest>
 
 	<quest id="tier3_clear">
@@ -1434,14 +1560,17 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="ClearSleepers">
 			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1451,21 +1580,23 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="6000"/>
-		<reward type="Item" id="casinoCoin" value="1610"/>
+		<reward type="Item" id="casinoCoin" value="1800"/>
 
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="4"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="4"/>
-		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="4"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="4"/>
-		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="4"/>
-		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="3"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="3"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="3"/>
 	</quest>
 
 	<quest id="tier4_clear">
@@ -1487,14 +1618,17 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="ClearSleepers">
 			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1504,21 +1638,23 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="7500"/>
 		<reward type="Item" id="casinoCoin" value="2040"/>
 
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="5"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="5"/>
-		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="5"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="5"/>
-		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="5"/>
-		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="4"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="4"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="4"/>
 	</quest>
 
 	<quest id="tier5_clear">
@@ -1540,14 +1676,17 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="ClearSleepers">
 			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1557,21 +1696,23 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="15000"/>
 		<reward type="Item" id="casinoCoin" value="4080"/>
 
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="7"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="7"/>
-		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="7"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="7"/>
-		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="7"/>
-		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="7"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="5"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="5"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="5"/>
 	</quest>
 
 	<quest id="tier6_clear">
@@ -1593,14 +1734,17 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="ClearSleepers">
 			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1610,16 +1754,18 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="24000"/>
 		<reward type="Item" id="casinoCoin" value="7200"/>
 
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="6"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="6"/>
 		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="6"/>
 		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="6"/>
 		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="6"/>
@@ -1646,14 +1792,17 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="ClearSleepers">
 			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
 		</objective>
 
 		<objective type="FetchFromContainer">
@@ -1661,6 +1810,7 @@
 			<property name="quest_item_ID" value="1"/>
 			<property name="item_count" value="1"/>
 			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container" />
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1670,21 +1820,23 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="5060"/>
-		<reward type="Item" id="casinoCoin" value="1270"/>
+		<reward type="Item" id="casinoCoin" value="1400"/>
 
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="3"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="3"/>
-		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="3"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="3"/>
-		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="3"/>
-		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="2"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="2"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="2"/>
 	</quest>
 
 	<quest id="tier3_fetch_clear">
@@ -1706,14 +1858,17 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="ClearSleepers">
 			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
 		</objective>
 
 		<objective type="FetchFromContainer">
@@ -1721,6 +1876,7 @@
 			<property name="quest_item_ID" value="1"/>
 			<property name="item_count" value="1"/>
 			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container" />
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1730,21 +1886,23 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="6750"/>
-		<reward type="Item" id="casinoCoin" value="1810"/>
+		<reward type="Item" id="casinoCoin" value="2000"/>
 
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="4"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="4"/>
-		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="4"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="4"/>
-		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="4"/>
-		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="3"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="3"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="3"/>
 	</quest>
 
 	<quest id="tier4_fetch_clear">
@@ -1766,14 +1924,17 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="ClearSleepers">
 			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
 		</objective>
 
 		<objective type="FetchFromContainer">
@@ -1781,6 +1942,7 @@
 			<property name="quest_item_ID" value="1"/>
 			<property name="item_count" value="1"/>
 			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container" />
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1790,21 +1952,23 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="8400"/>
 		<reward type="Item" id="casinoCoin" value="2300"/>
 
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="5"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="5"/>
-		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="5"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="5"/>
-		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="5"/>
-		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="4"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="4"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="4"/>
 	</quest>
 
 	<quest id="tier5_fetch_clear">
@@ -1826,14 +1990,17 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="ClearSleepers">
 			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
 		</objective>
 
 		<objective type="FetchFromContainer">
@@ -1841,6 +2008,7 @@
 			<property name="quest_item_ID" value="1"/>
 			<property name="item_count" value="1"/>
 			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container" />
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1850,21 +2018,23 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="16900"/>
 		<reward type="Item" id="casinoCoin" value="4600"/>
 
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="7"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="7"/>
-		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="7"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="7"/>
-		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="7"/>
-		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="7"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="5"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="5"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="5"/>
 	</quest>
 
 	<quest id="tier6_fetch_clear">
@@ -1886,14 +2056,17 @@
 
 		<objective type="RandomPOIGoto">
 			<property name="phase" value="1"/>
+			<property name="nav_object" value="quest" />
 		</objective>
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="ClearSleepers">
 			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
 		</objective>
 
 		<objective type="FetchFromContainer">
@@ -1901,6 +2074,7 @@
 			<property name="quest_item_ID" value="1"/>
 			<property name="item_count" value="1"/>
 			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container" />
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -1910,16 +2084,18 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="27000"/>
 		<reward type="Item" id="casinoCoin" value="8000"/>
 
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="6"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="6"/>
 		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="6"/>
 		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="6"/>
 		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="6"/>
@@ -1944,14 +2120,18 @@
 		<property name="shareable" value="true"/>
 
 		<objective type="TreasureChest">
-			<property name="block" value="cntBuriedStashChest"/>
+			<property name="block" value="cntBuriedFoodStashChest"/>
 			<property name="distance" value="250-500"/>
 			<property name="default_radius" value="5"/>
 			<property name="container_type" value="Supplies"/>
+			<property name="nav_object" value="treasure" />
+			<property name="direct_nav_object" value="treasure_direct" />
+			<property name="blocks_per_reduction" value="10" />
+			<property name="radius_reduction_sound" value="ui_radius_shrink" />
 		</objective>
 
 		<objective type="FetchFromTreasure">
-			<property name="block" value="cntBuriedStashChest"/>
+			<property name="block" value="cntBuriedFoodStashChest"/>
 			<property name="quest_item_ID" value="1"/>
 			<property name="item_count" value="1"/>
 		</objective>
@@ -1960,21 +2140,24 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="2500"/>
 		<reward type="Item" id="casinoCoin" value="560"/>
 
 		<reward type="LootItem" id="groupQuestMedical" ischosen="true" isfixed="true" value="2"/>
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged,groupQuestArmor" ischosen="true" isfixed="true" value="2"/>
+		<!--<reward type="LootItem" id="groupQuestWeapons,groupQuestArmor" ischosen="true" isfixed="true" value="2"/>-->
 		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/>
+		<!--<reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/>-->
 		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="2"/>
 		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestAmmo,groupQuestMedical,groupQuestSchematics,groupQuestMods" ischosen="true" value="1"/>
 	</quest>
 
 	<quest id="tier2_buried_supplies">
@@ -1998,6 +2181,10 @@
 			<property name="distance" value="500-750"/>
 			<property name="default_radius" value="7"/>
 			<property name="container_type" value="Supplies"/>
+			<property name="nav_object" value="treasure" />
+			<property name="direct_nav_object" value="treasure_direct" />
+			<property name="blocks_per_reduction" value="10" />
+			<property name="radius_reduction_sound" value="ui_radius_shrink" />
 		</objective>
 
 		<objective type="FetchFromTreasure">
@@ -2010,17 +2197,19 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="2500"/>
 		<reward type="Item" id="casinoCoin" value="940"/>
 
 		<reward type="LootItem" id="groupQuestMedical" ischosen="true" isfixed="true" value="3"/>
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged,groupQuestArmor" ischosen="true" isfixed="true" value="3"/>
+		<reward type="LootItem" id="groupQuestWeapons,groupQuestArmor" ischosen="true" isfixed="true" value="3"/>
 		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="3"/>
 		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="3"/>
 		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="3"/>
@@ -2049,10 +2238,12 @@
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="ClearSleepers">
 			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -2062,16 +2253,18 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="2500"/>
 		<reward type="Item" id="casinoCoin" value="350"/>
 
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="2"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="2"/>
 		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="2"/>
 		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
 		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/>
@@ -2101,6 +2294,7 @@
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="FetchFromContainer">
@@ -2108,6 +2302,7 @@
 			<property name="quest_item_ID" value="1"/>
 			<property name="item_count" value="1"/>
 			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container" />
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -2117,16 +2312,18 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="2500"/>
 		<reward type="Item" id="casinoCoin" value="350"/>
 
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="2"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="2"/>
 		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="2"/>
 		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
 		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/>
@@ -2156,10 +2353,12 @@
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="ClearSleepers">
 			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
 		</objective>
 
 		<objective type="FetchFromContainer">
@@ -2167,6 +2366,7 @@
 			<property name="quest_item_ID" value="1"/>
 			<property name="item_count" value="1"/>
 			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container" />
 		</objective>
 
 		<objective type="POIStayWithin">
@@ -2176,16 +2376,18 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="2500"/>
 		<reward type="Item" id="casinoCoin" value="350"/>
 
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="2"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="2"/>
 		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="2"/>
 		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
 		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/>
@@ -2215,10 +2417,12 @@
 
 		<objective type="RallyPoint">
 			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally" />
 		</objective>
 
 		<objective type="ClearSleepers">
 			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
 		</objective>
 
 		<objective type="FetchFromContainer">
@@ -2236,16 +2440,18 @@
 
 		<objective type="ReturnToNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<objective type="InteractWithNPC">
 			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader" />
 		</objective>
 
 		<reward type="Exp" value="2500"/>
 		<reward type="Item" id="casinoCoin" value="350"/>
 
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="2"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="2"/>
 		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="2"/>
 		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
 		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/>
@@ -2275,17 +2481,10 @@
 		<!-- <reward type="Skill" id="Influence" value="1000000"/> -->
 		<reward type="Exp" value="2500"/>
 
-		<!-- <reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" isfixed="true" value="2"/> -->
-		<!-- <reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="2"/> -->
-		<!-- <reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/> -->
-		<!-- <reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/> -->
-		<!-- <reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="2"/> -->
-		<!-- <reward type="LootItem" id="groupQuestMods" ischosen="true" value="2"/> -->
-		
 		<reward type="LootItem" id="groupQuestTools" ischosen="true" isfixed="true" value="2"/>
 		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="2"/>
 		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="2"/>
 		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="2"/>
 		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="2"/>
 	</quest>
@@ -2307,11 +2506,211 @@
 
 		<reward type="Item" id="casinoCoin" value="200"/>
 
-		<reward type="LootItem" id="groupQuestMelee" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="1"/>
 		<reward type="LootItem" id="groupQuestArmor" ischosen="true" isfixed="true" value="6"/>
-		<reward type="LootItem" id="groupQuestRanged" ischosen="true" isfixed="true" value="3"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" isfixed="true" value="3"/>
 		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="2"/>
 		<reward type="SkillPoints" value="5" ischosen="true"/>
+	</quest>
+
+	<quest id="tier2_nexttrader">
+		<property name="group_name_key" value="quest_next_trader"/>
+		<property name="name_key" value="quest_next_trader"/>
+		<property name="subtitle_key" value="quest_next_trader_subtitle"/>
+		<property name="description_key" value="quest_next_trader_description"/>
+		<property name="icon" value="ui_game_symbol_map_trader"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty" value="medium"/>
+		<property name="shareable" value="false"/>
+		<property name="repeatable" value="false"/>
+		<property name="difficulty" value="medium"/>
+		<property name="difficulty_tier" value="2"/>
+
+		<property name="unique_key" value="traderquest" />
+
+		<property name="offer_key" value="quest_next_trader_offer"/>
+		<property name="statement_key" value="quest_next_trader_statement"/>
+		<property name="response_key" value="quest_next_trader_response"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_next_trader_completion"/>
+
+		<property name="return_to_quest_giver" value="false" />
+
+		<property name="quest_type" value="special" />
+
+		<!-- <action type="ShowTip" value="quest_WhiteRiverCitizen1_description"> -->
+			<!-- <property name="delay" value="3"/> -->
+		<!-- </action> -->
+		<objective type="Goto" id="trader" value="5" phase="1">
+			<property name="nav_object" value="go_to_trader" />
+			<property name="biome_filter_type" value="ExcludeBiome" />
+			<property name="biome_filter" value="wasteland" />
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader" />
+			<property name="use_closest" value="true" />
+		</objective>
+
+		<reward type="Exp" value="500"/>
+	</quest>
+
+	<quest id="tier3_nexttrader">
+		<property name="group_name_key" value="quest_next_trader"/>
+		<property name="name_key" value="quest_next_trader"/>
+		<property name="subtitle_key" value="quest_next_trader_subtitle"/>
+		<property name="description_key" value="quest_next_trader_description"/>
+		<property name="icon" value="ui_game_symbol_map_trader"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty" value="medium"/>
+		<property name="shareable" value="false"/>
+		<property name="repeatable" value="false"/>
+		<property name="difficulty" value="medium"/>
+		<property name="difficulty_tier" value="3"/>
+
+		<property name="unique_key" value="traderquest" />
+
+		<property name="offer_key" value="quest_next_trader_offer"/>
+		<property name="statement_key" value="quest_next_trader_statement"/>
+		<property name="response_key" value="quest_next_trader_response"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_next_trader_completion"/>
+
+		<property name="return_to_quest_giver" value="false" />
+
+		<property name="quest_type" value="special" />
+
+		<objective type="Goto" id="trader" value="5" phase="1">
+			<property name="nav_object" value="go_to_trader" />
+			<property name="biome_filter_type" value="ExcludeBiome" />
+			<property name="biome_filter" value="wasteland" />
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader" />
+			<property name="use_closest" value="true" />
+		</objective>
+
+		<reward type="Exp" value="500"/>
+	</quest>
+
+	<quest id="tier4_nexttrader">
+		<property name="group_name_key" value="quest_next_trader"/>
+		<property name="name_key" value="quest_next_trader"/>
+		<property name="subtitle_key" value="quest_next_trader_subtitle"/>
+		<property name="description_key" value="quest_next_trader_description"/>
+		<property name="icon" value="ui_game_symbol_map_trader"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty" value="medium"/>
+		<property name="shareable" value="false"/>
+		<property name="repeatable" value="false"/>
+		<property name="difficulty" value="medium"/>
+		<property name="difficulty_tier" value="4"/>
+
+		<property name="unique_key" value="traderquest" />
+
+		<property name="offer_key" value="quest_next_trader_offer"/>
+		<property name="statement_key" value="quest_next_trader_statement"/>
+		<property name="response_key" value="quest_next_trader_response"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_next_trader_completion"/>
+
+		<property name="return_to_quest_giver" value="false" />
+
+		<property name="quest_type" value="special" />
+
+		<objective type="Goto" id="trader" value="5" phase="1">
+			<property name="nav_object" value="go_to_trader" />
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader" />
+			<property name="use_closest" value="true" />
+		</objective>
+
+		<reward type="Exp" value="500"/>
+	</quest>
+
+	<quest id="tier5_nexttrader">
+		<property name="group_name_key" value="quest_next_trader"/>
+		<property name="name_key" value="quest_next_trader"/>
+		<property name="subtitle_key" value="quest_next_trader_subtitle"/>
+		<property name="description_key" value="quest_next_trader_description"/>
+		<property name="icon" value="ui_game_symbol_map_trader"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty" value="medium"/>
+		<property name="shareable" value="false"/>
+		<property name="repeatable" value="false"/>
+		<property name="difficulty" value="medium"/>
+		<property name="difficulty_tier" value="5"/>
+
+		<property name="unique_key" value="traderquest" />
+
+		<property name="offer_key" value="quest_next_trader_offer"/>
+		<property name="statement_key" value="quest_next_trader_statement"/>
+		<property name="response_key" value="quest_next_trader_response"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_next_trader_completion"/>
+
+		<property name="return_to_quest_giver" value="false" />
+
+		<property name="quest_type" value="special" />
+
+		<objective type="Goto" id="trader" value="5" phase="1">
+			<property name="nav_object" value="go_to_trader" />
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader" />
+			<property name="use_closest" value="true" />
+		</objective>
+
+		<reward type="Exp" value="500"/>
+	</quest>
+
+	<quest id="test_nexttrader">
+		<property name="group_name_key" value="quest_next_trader"/>
+		<property name="name_key" value="quest_next_trader"/>
+		<property name="subtitle_key" value="quest_next_trader_subtitle"/>
+		<property name="description_key" value="quest_next_trader_description"/>
+		<property name="icon" value="ui_game_symbol_map_trader"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty" value="medium"/>
+		<property name="shareable" value="false"/>
+		<property name="repeatable" value="true"/>
+		<property name="difficulty" value="medium"/>
+		<property name="difficulty_tier" value="1"/>
+
+		<property name="unique_key" value="traderquest" />
+
+		<property name="offer_key" value="quest_next_trader_offer"/>
+		<property name="statement_key" value="quest_next_trader_statement"/>
+		<property name="response_key" value="quest_next_trader_response"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="return_to_quest_giver" value="false" />
+		<property name="quest_type" value="special" />
+
+		<objective type="Goto" id="trader" value="5" phase="1">
+			<property name="nav_object" value="go_to_trader" />
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader" />
+			<property name="use_closest" value="true" />
+		</objective>
+
+		<reward type="Exp" value="100"/>
+		<reward type="Item" id="resourceRockSmall" ischosen="true" isfixed="true" value="1"/>
 	</quest>
 
 	<quest id="quest_tier1complete">
@@ -2326,12 +2725,14 @@
 		<property name="completion_key" value="quest_tier_complete_completion"/>
 
 		<reward type="Item" id="casinoCoin" value="2000"/>
-		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" isfixed="true" value="12"/>
-		<reward type="LootItem" id="groupQuestMods" ischosen="true" isfixed="true" value="12"/>
-		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="12"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="12"/>
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" value="12"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="12"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" isfixed="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" isfixed="true" value="2"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
+		<!--<reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/>-->
+		<!--<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="2"/>-->
+		<!--<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="2"/>-->
+		<reward type="LootItem" id="groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="1"/>
 	</quest>
 
 	<quest id="quest_tier2complete">
@@ -2346,12 +2747,12 @@
 		<property name="completion_key" value="quest_tier_complete_completion"/>
 
 		<reward type="Item" id="casinoCoin" value="2000"/>
-		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" isfixed="true" value="13"/>
-		<reward type="LootItem" id="groupQuestMods" ischosen="true" isfixed="true" value="13"/>
-		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="13"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="13"/>
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" value="13"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="13"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" isfixed="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" isfixed="true" value="3"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="3"/>
 	</quest>
 
 	<quest id="quest_tier3complete">
@@ -2366,12 +2767,12 @@
 		<property name="completion_key" value="quest_tier_complete_completion"/>
 
 		<reward type="Item" id="casinoCoin" value="2000"/>
-		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" isfixed="true" value="14"/>
-		<reward type="LootItem" id="groupQuestMods" ischosen="true" isfixed="true" value="14"/>
-		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="14"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="14"/>
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" value="14"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="14"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" isfixed="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" isfixed="true" value="4"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="4"/>
 	</quest>
 
 	<quest id="quest_tier4complete">
@@ -2386,12 +2787,12 @@
 		<property name="completion_key" value="quest_tier_complete_completion"/>
 
 		<reward type="Item" id="casinoCoin" value="2000"/>
-		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" isfixed="true" value="15"/>
-		<reward type="LootItem" id="groupQuestMods" ischosen="true" isfixed="true" value="15"/>
-		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="15"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="15"/>
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" value="15"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="15"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" isfixed="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" isfixed="true" value="5"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="5"/>
 	</quest>
 
 	<quest id="quest_tier5complete">
@@ -2406,12 +2807,12 @@
 		<property name="completion_key" value="quest_tier5_complete_completion"/>
 
 		<reward type="Item" id="casinoCoin" value="2000"/>
-		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" isfixed="true" value="16"/>
-		<reward type="LootItem" id="groupQuestMods" ischosen="true" isfixed="true" value="16"/>
-		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="16"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="16"/>
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" value="16"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="16"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" isfixed="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" isfixed="true" value="6"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="6"/>
 	</quest>
 
 	<quest id="quest_tier6complete">
@@ -2426,12 +2827,12 @@
 		<property name="completion_key" value="quest_tier6_complete_completion"/>
 
 		<reward type="Item" id="casinoCoin" value="2000"/>
-		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" isfixed="true" value="16"/>
-		<reward type="LootItem" id="groupQuestMods" ischosen="true" isfixed="true" value="16"/>
-		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="16"/>
-		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="16"/>
-		<reward type="LootItem" id="groupQuestMelee,groupQuestRanged" ischosen="true" value="16"/>
-		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="16"/>
+		<reward type="LootItem" id="groupQuestSchematics" ischosen="true" isfixed="true" value="7"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" isfixed="true" value="7"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="7"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" value="7"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="7"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="7"/>
 	</quest>
 
 	<quest_list id="test_quests">
@@ -2442,37 +2843,44 @@
 	</quest_list>
 
 	<quest_list id="trader_quests">
-		<!-- Tier 1 -->
-	<quest id="tier1_clear"/>
-	<quest id="tier1_fetch"/>
-	<quest id="tier1_buried_supplies"/>
+			<!-- Tier 1 -->
+		<quest id="tier1_clear"/>
+		<quest id="tier1_fetch"/>
+		<quest id="tier1_buried_supplies"/>
 
-		<!-- Tier 2 -->
-	<quest id="tier2_clear"/>
-	<quest id="tier2_fetch"/>
-	<quest id="tier2_fetch_clear"/>
-	<quest id="tier2_buried_supplies"/>
+			<!-- Tier 2 -->
 
-		<!-- Tier 3 -->
-	<quest id="tier3_clear"/>
-	<quest id="tier3_fetch"/>
-	<quest id="tier3_fetch_clear"/>
+		<quest id="tier2_clear"/>
+		<quest id="tier2_fetch"/>
+		<quest id="tier2_fetch_clear"/>
+		<quest id="tier2_buried_supplies"/>
 
-		<!-- Tier 4 -->
-	<quest id="tier4_clear"/>
-	<quest id="tier4_fetch"/>
-	<quest id="tier4_fetch_clear"/>
+			<!-- Tier 3 -->
+		<quest id="tier3_clear"/>
+		<quest id="tier3_fetch"/>
+		<quest id="tier3_fetch_clear"/>
 
-		<!-- Tier 5 -->
-	<quest id="tier5_clear"/>
-	<quest id="tier5_fetch"/>
-	<quest id="tier5_fetch_clear"/>
+			<!-- Tier 4 -->
+		<quest id="tier4_clear"/>
+		<!-- <quest id="tier4_fetch"/> -->
+		<quest id="tier4_fetch_clear"/>
+
+			<!-- Tier 5 -->
+		<quest id="tier5_clear"/>
+		<!-- <quest id="tier5_fetch"/> -->
+		<quest id="tier5_fetch_clear"/>
 
 
 		<!-- Tier 6 -->
 		<!--	<quest id="tier6_clear"/> -->
 		<!--	<quest id="tier6_fetch"/> -->
 		<!--	<quest id="tier6_fetch_clear"/> -->
+
+			<!-- Special Quests -->
+		<quest id="tier2_nexttrader" />
+		<quest id="tier3_nexttrader" />
+		<quest id="tier4_nexttrader" />
+		<quest id="tier5_nexttrader" />
 	</quest_list>
 
 	<quest_items max_count="100">

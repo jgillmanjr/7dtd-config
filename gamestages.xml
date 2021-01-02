@@ -53,10 +53,10 @@ daysSurvived:
 	It is low-capped at 0, high-capped at "your player level".
 	At player level 41 you can have a daysSurvived value anywhere from 0 to 41.
 
-gameStage = ( playerLevel + daysSurvived ) * gameDifficultyMultiplier
+gameStage = ( playerLevel + daysSurvived ) * difficultyBonus
 
-So if a player was level 10 and survived 4 days playing on the Nomad Difficulty when the game stage points are calculated the game stage points would be
-gameStage = (Player Level 10 + Days Survived 4 ) X Nomad Difficulty Multiplier 1.2
+So if a player was level 10 and survived 4 days playing when the game stage points are calculated the game stage points would be
+gameStage = (Player Level 10 + Days Survived 4 ) X difficultyBonus 1.2
 The total would be 16.8 or 16 game stage points.
 
 If the same player was level 10 and had survived 25 days and died 2x:
@@ -64,31 +64,25 @@ If the same player was level 10 and had survived 25 days and died 2x:
 	Then daysAlive of 21 gets capped to player level so 10.
 
 
-This is how the gamestage of a party is calculated:
+This is how the gamestage of a PARTY is calculated:
 The gamestage of all (up to) 6 players is calculated.
-The players are sorted by gamestage and only the 5 highest numbers go into the calculation.
+The players are sorted by gamestage.
 
 The highest GS number is multiplied by "startingWeight".
-This then loops down the list and "startingWeight" is reduced by "diminishingReturns" every time.
+This then loops down the list and "startingWeight" is multiplied by "diminishingReturns" every time.
 
 Example:
 Players with GS 120, 30, 60, 91, 5, 80.
-startingWeight= 1.7, diminishingReturns=0.22
+startingWeight= 1.7, diminishingReturns=0.5
 
 So we get
 120 * 1.70 = 204
- 91 * 1.48 = 134
- 80 * 1.26 = 100
- 60 * 1.04 =  62
- 30 * 0.82 =  24
-  5 (is ignored)
-
-... or a total party GS of 524
-
-An interesting fact is that the max GS of a part or player is now KNOWN because the player level (which caps daysAlive) and diff modifier are known
-and the party weight factors are known.
-
-With default values you get up to 600 for a single lvl 150 (max) player on max difficulty and for a full party of max level players up to 1800.
+ 91 *  .85 =  77
+ 80 *  .42 =  34
+ 60 *  .21 =  13
+ 30 *  .82 =  24
+  5 *  .11 =   1
+... or a total party GS of 353
 
 - - - - - - -
 
@@ -113,16 +107,16 @@ Console command: forcegamestage
 	<config
 		daysAliveChangeWhenKilled="2"
 
-		scavengerGameDifficultyBonus="1.0"
-		adventurerGameDifficultyBonus="1.2"
-		nomadGameDifficultyBonus="1.5"
-		warriorGameDifficultyBonus="1.7"
-		survivalistGameDifficultyBonus="2.0"
-		insaneGameDifficultyBonus="2.5"
+		difficultyBonus="1.2"
 
 		startingWeight ="1"
-		diminishingReturns ="0.2"
+		diminishingReturns ="0.5"
+
+		lootBonusEvery = "12"
+		lootBonusMaxCount = "30"
+		lootBonusScale = "25"
 	/> <!-- the DifficultyBonus parameters are now flat multipliers. 2.0 = 2x the gamestage. Simple. -->
+	<!-- lootBonus changes blood moon drop rates every x zombies, up to max chances, by scale -->
 
 	<!-- <group name="S_Default_XS" emptyChance="0" decoyChance="0" decoy1hpChance="0">
 
@@ -190,12 +184,24 @@ Console command: forcegamestage
 		<spawner name="ZombieHazMatOnlyHorde" count="5,6"/>
 	</group>
 
+	<group name="S_Zom_Spider_Only" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+		<spawner name="ZombieSpiderOnlyHorde" count="5,6"/>
+	</group>
+
 	<group name="S_Zom_Utility_Worker" emptyChance="0" decoyChance="0" decoy1hpChance="0">
 		<spawner name="ZombieUtilityWorkerHorde" count="5,6"/>
 	</group>
 
+	<group name="S_Zom_Janitor_Only" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+		<spawner name="ZombieJanitorOnlyHorde" count="5,6"/>
+	</group>
+
 	<group name="S_Zom_Businessman" emptyChance="0" decoyChance="0" decoy1hpChance="0">
 		<spawner name="ZombieBusinessManHorde" count="5,6"/>
+	</group>
+
+	<group name="S_Zom_FatCops" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+		<spawner name="ZombieFatCopHorde" count="5,6"/>
 	</group>
 
 	<group name="S_Zom_Burnt" emptyChance="0" decoyChance="0" decoy1hpChance="0">
@@ -318,6 +324,15 @@ Console command: forcegamestage
 		<gamestage stage="800"><spawn group="zombieLabWorkerGroupGS800" num="1" maxAlive="1" duration="1"/></gamestage>
 	</spawner>
 
+	<spawner name="ZombieSpiderOnlyHorde">
+		<gamestage stage="1"><spawn group="zombieSpiderGroupGS1" num="1" maxAlive="1" duration="1"/></gamestage>
+		<gamestage stage="50"><spawn group="zombieSpiderGroupGS50" num="1" maxAlive="1" duration="1"/></gamestage>
+		<gamestage stage="100"><spawn group="zombieSpiderGroupGS100" num="1" maxAlive="1" duration="1"/></gamestage>
+		<gamestage stage="200"><spawn group="zombieSpiderGroupGS200" num="1" maxAlive="1" duration="1"/></gamestage>
+		<gamestage stage="400"><spawn group="zombieSpiderGroupGS400" num="1" maxAlive="1" duration="1"/></gamestage>
+		<gamestage stage="800"><spawn group="zombieSpiderGroupGS800" num="1" maxAlive="1" duration="1"/></gamestage>
+	</spawner>
+
 	<spawner name="ZombieSoldierHorde">
 		<gamestage stage="1"><spawn group="zombieSoldierGroupGS1" num="1" maxAlive="1" duration="1"/></gamestage>
 		<gamestage stage="50"><spawn group="zombieSoldierGroupGS50" num="1" maxAlive="1" duration="1"/></gamestage>
@@ -340,6 +355,15 @@ Console command: forcegamestage
 		<gamestage stage="800"><spawn group="zombieUtilityWorkerGroupGS800" num="1" maxAlive="1" duration="1"/></gamestage>
 	</spawner>
 
+	<spawner name="ZombieJanitorOnlyHorde">
+		<gamestage stage="1"><spawn group="zombieJanitorGroupGS1" num="1" maxAlive="1" duration="1"/></gamestage>
+		<gamestage stage="50"><spawn group="zombieJanitorGroupGS50" num="1" maxAlive="1" duration="1"/></gamestage>
+		<gamestage stage="100"><spawn group="zombieJanitorGroupGS100" num="1" maxAlive="1" duration="1"/></gamestage>
+		<gamestage stage="200"><spawn group="zombieJanitorGroupGS200" num="1" maxAlive="1" duration="1"/></gamestage>
+		<gamestage stage="400"><spawn group="zombieJanitorGroupGS400" num="1" maxAlive="1" duration="1"/></gamestage>
+		<gamestage stage="800"><spawn group="zombieJanitorGroupGS800" num="1" maxAlive="1" duration="1"/></gamestage>
+	</spawner>
+
 	<spawner name="SnowZombieHorde">
 		<gamestage stage="1"><spawn group="zombieSnowGroupGS1" num="1" maxAlive="1" duration="1"/></gamestage>
 		<gamestage stage="50"><spawn group="zombieSnowGroupGS50" num="1" maxAlive="1" duration="1"/></gamestage>
@@ -356,6 +380,15 @@ Console command: forcegamestage
 		<gamestage stage="200"><spawn group="zombieBusinessManGroupGS200" num="1" maxAlive="1" duration="1"/></gamestage>
 		<gamestage stage="400"><spawn group="zombieBusinessManGroupGS400" num="1" maxAlive="1" duration="1"/></gamestage>
 		<gamestage stage="800"><spawn group="zombieBusinessManGroupGS800" num="1" maxAlive="1" duration="1"/></gamestage>
+	</spawner>
+
+	<spawner name="ZombieFatCopHorde">
+		<gamestage stage="1"><spawn group="zombieFatCopGroupGS1" num="1" maxAlive="1" duration="1"/></gamestage>
+		<gamestage stage="50"><spawn group="zombieFatCopGroupGS50" num="1" maxAlive="1" duration="1"/></gamestage>
+		<gamestage stage="100"><spawn group="zombieFatCopGroupGS100" num="1" maxAlive="1" duration="1"/></gamestage>
+		<gamestage stage="200"><spawn group="zombieFatCopGroupGS200" num="1" maxAlive="1" duration="1"/></gamestage>
+		<gamestage stage="400"><spawn group="zombieFatCopGroupGS400" num="1" maxAlive="1" duration="1"/></gamestage>
+		<gamestage stage="800"><spawn group="zombieFatCopGroupGS800" num="1" maxAlive="1" duration="1"/></gamestage>
 	</spawner>
 
 	<spawner name="ZombieBurntHorde">

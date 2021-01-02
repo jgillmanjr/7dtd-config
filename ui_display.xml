@@ -1,45 +1,41 @@
 <ui_display_info>
-<!-- all of the name= entries are CASE SENSITIVE -->
+<!-- all of the name= entries are CASE SENSITIVE
+
+All the perk tags:
+
+-->
 	<item_display>
 		<item_display_info display_type="rangedGun" display_group="groupRanged">
-			<display_entry name="EntityDamage" title_key="statEntityDamageRanged"/>
-			<display_entry name="MagazineSize" title_key="statMagazineSize" />
-			<display_entry name="RoundsPerMinute" title_key="statRoundsPerMinute"/>
-			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageRanged" tags="perkGunslinger,revolver,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="MagazineSize" title_key="statMagazineSize" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="RoundsPerMinute" title_key="statRoundsPerMinute" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
 			<!-- <display_entry name="WeaponHandling" title_key="statWeaponHandling" display_type="Percent" show_inverted="true"/> -->
-			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,admin"/>
+			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
 		</item_display_info>
 
 		<item_display_info display_type="rangedShotgun" display_group="groupRanged">
-			<display_entry name="EntityDamage" title_key="statEntityDamageShotgun"/>
-			<display_entry name="RoundRayCount" title_key="statRoundRayCount"/>
-			<display_entry name="MagazineSize" title_key="statMagazineSize"/>
-			<display_entry name="RoundsPerMinute" title_key="statRoundsPerMinute"/>
-			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange"/>
-			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="perkBoomstick" />
+			<display_entry name="EntityDamage" title_key="statEntityDamageShotgun" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="RoundRayCount" title_key="statRoundRayCount" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="MagazineSize" title_key="statMagazineSize" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="RoundsPerMinute" title_key="statRoundsPerMinute" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
 			<display_entry name="dStatStunEffect" title_key="statStunEffect" display_type="Time"/>
 		</item_display_info>
 
-		<item_display_info display_type="rangedTurret" display_group="groupRanged">
-			<display_entry name="EntityDamage" title_key="statEntityDamageRanged"/>
-			<display_entry name="MagazineSize" title_key="statMagazineSize"/>
-			<display_entry name="RoundsPerMinute" title_key="statRoundsPerMinute"/>
-			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange"/>
-			<!-- <display_entry name="WeaponHandling" title_key="statWeaponHandling" display_type="Percent" show_inverted="true"/> -->
-			<display_entry name="DegradationMax" title_key="statDegradationHPMax" tags="perkTurrets"/>
-		</item_display_info>
-
 		<item_display_info display_type="rangedLauncher" display_group="groupRanged">
-			<display_entry name="EntityDamage" title_key="statEntityDamageRanged"/>
-			<display_entry name="MagazineSize" title_key="statMagazineSize"/>
-			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange"/>
-			<display_entry name="ProjectileVelocity" title_key="statProjectileVelocity"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageRangedImpact" tags="perkDemolitionsExpert,admin"/>
+			<display_entry name="MagazineSize" title_key="statMagazineSize" tags="perkDemolitionsExpert,admin"/>
+			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange" tags="perkDemolitionsExpert,admin"/>
+			<display_entry name="ProjectileVelocity" title_key="statProjectileVelocity" tags="perkDemolitionsExpert,admin"/>
 			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="perkDemolitionsExpert,admin"/>
 		</item_display_info>
 
 		<item_display_info display_type="rangedBow" display_group="groupRanged">
-			<display_entry name="EntityDamage" title_key="statEntityDamageRanged"/>
-			<display_entry name="ProjectileVelocity" title_key="statProjectileVelocity"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageRanged" tags="perkArchery,admin"/>
+			<display_entry name="dEntityDamageSneak" title_key="statEntityDamageSneak" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="ProjectileVelocity" title_key="statProjectileVelocity" tags="perkArchery,admin"/>
 			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="perkArchery,admin"/>
 		</item_display_info>
 
@@ -51,44 +47,73 @@
 		</item_display_info>
 
 		<item_display_info display_type="melee" display_group="groupMelee">
-			<display_entry name="EntityDamage" title_key="statEntityDamageMelee"/>
-			<display_entry name="EntityDamage" title_key="statPowerAttack" tags="secondary"/>
-			<display_entry name="BlockDamage" title_key="statBlockDamage"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageMelee" tags="perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
+			<display_entry name="EntityDamage" title_key="statPowerAttack" tags="secondary,perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
 			<display_entry name="StaminaLoss" title_key="statStaminaLoss" negative_preferred="true"/>
-			<display_entry name="AttacksPerMinute" title_key="statAttacksPerMinute"/>
-			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,perkLivingOffTheLand,admin"/>
+			<display_entry name="AttacksPerMinute" title_key="statAttacksPerMinute" tags="perkFlurryOfBlows,perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
+			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
+		</item_display_info>
+
+		<item_display_info display_type="meleeSpear" display_group="groupMelee">
+			<display_entry name="EntityDamage" title_key="statEntityDamageMelee" tags="perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
+			<display_entry name="EntityDamage" title_key="statPowerAttack" tags="secondary,perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
+			<display_entry name="dTargetArmor" title_key="statTargetArmor" display_type="Percent" display_leading_plus="true" negative_preferred="true"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
+			<display_entry name="StaminaLoss" title_key="statStaminaLoss" negative_preferred="true"/>
+			<display_entry name="AttacksPerMinute" title_key="statAttacksPerMinute" tags="perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
+			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
+		</item_display_info>
+
+		<item_display_info display_type="meleeHeavy" display_group="groupMelee">
+			<display_entry name="EntityDamage" title_key="statEntityDamageMelee" tags="perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
+			<display_entry name="EntityDamage" title_key="statPowerAttack" tags="secondary,perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
+			<display_entry name="dEntityDamageSneak" title_key="statEntityDamageSneak" display_type="Bool"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
+			<display_entry name="StaminaLoss" title_key="statStaminaLoss" negative_preferred="true"/>
+			<display_entry name="AttacksPerMinute" title_key="statAttacksPerMinute" tags="perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
+			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
 		</item_display_info>
 
 		<item_display_info display_type="meleeKnife" display_group="groupMelee">
-			<display_entry name="EntityDamage" title_key="statEntityDamageMelee"/>
-			<display_entry name="EntityDamage" title_key="statPowerAttack" tags="secondary"/>
-			<display_entry name="BlockDamage" title_key="statBlockDamage"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageMelee" tags="perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
+			<display_entry name="EntityDamage" title_key="statPowerAttack" tags="secondary,perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
+			<display_entry name="dEntityDamageSneak" title_key="statEntityDamageSneak" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
 			<display_entry name="StaminaLoss" title_key="statStaminaLoss" negative_preferred="true"/>
-			<display_entry name="AttacksPerMinute" title_key="statAttacksPerMinute"/>
-			<display_entry name="dBleeding" title_key="buffInjuryBleedingName" display_type="Percent"/>
+			<display_entry name="AttacksPerMinute" title_key="statAttacksPerMinute" tags="perkFlurryOfBlows,perkMiner69r,perkSalvageOperations,perkElectrocutioner,perkJavelinMaster,perkPummelPete,perkSkullCrusher,perkDeepCuts,perkBrawler,admin"/>
 			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="perkDeepCuts,admin"/>
 		</item_display_info>
 
 		<item_display_info display_type="meleeRepairTool" display_group="groupMelee">
-			<display_entry name="EntityDamage" title_key="statEntityDamageMelee"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageMelee" tags="perkMiner69r"/>
 			<display_entry name="dBlockRepairAmount" title_key="statBlockRepairAmount"/>
-			<display_entry name="BlockDamage" title_key="statBlockDamage"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkMiner69r"/>
 			<display_entry name="StaminaLoss" title_key="statStaminaLoss" negative_preferred="true"/>
-			<display_entry name="AttacksPerMinute" title_key="statAttacksPerMinute"/>
+			<display_entry name="AttacksPerMinute" title_key="statAttacksPerMinute" tags="perkMiner69r"/>
 			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="perkMiner69r,perkAdvancedEngineering,admin"/>
 		</item_display_info>
 
+		<item_display_info display_type="rangedRepairTool" display_group="groupMelee">
+			<display_entry name="EntityDamage" title_key="statEntityDamageMelee" tags="perkMiner69r"/>
+			<display_entry name="dBlockRepairAmount" title_key="statBlockRepairAmount"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkMiner69r"/>
+			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange" tags="perkMiner69r"/>
+			<display_entry name="RoundsPerMinute" title_key="statAttacksPerMinute" tags="perkMiner69r"/>
+			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="nailgun,admin"/>
+		</item_display_info>
+
 		<item_display_info display_type="motorTool" display_group="groupMelee">
-			<display_entry name="EntityDamage" title_key="statEntityDamageMelee"/>
-			<display_entry name="BlockDamage" title_key="statBlockDamage"/>
-			<display_entry name="MagazineSize" title_key="statFuelCapacity"/>
-			<display_entry name="RoundsPerMinute" title_key="statAttacksPerMinute"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageMelee" tags="perkMiner69r"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkMiner69r"/>
+			<display_entry name="MagazineSize" title_key="statFuelCapacity" tags="perkMiner69r"/>
+			<display_entry name="RoundsPerMinute" title_key="statAttacksPerMinute" tags="perkMiner69r"/>
 			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="perkMiner69r,admin"/>
 		</item_display_info>
 
 		<item_display_info display_type="simpleTool" display_group="groupMelee">
 			<display_entry name="EntityDamage" title_key="statEntityDamageMelee"/>
-			<display_entry name="EntityDamage" title_key="statPowerAttack" tags="secondary"/>
+			<display_entry name="EntityDamage" title_key="statPowerAttack"/>
 			<display_entry name="BlockDamage" title_key="statBlockDamage"/>
 			<display_entry name="StaminaLoss" title_key="statStaminaLoss" negative_preferred="true"/>
 			<display_entry name="AttacksPerMinute" title_key="statAttacksPerMinute"/>
@@ -104,79 +129,109 @@
 			<display_entry name="HypothermalResist" title_key="statHypothermalResist"/>
 		</item_display_info>
 
+		<item_display_info display_type="meleeTurret" display_group="groupMelee">
+			<display_entry name="EntityDamage" title_key="statEntityDamageMelee" tags="perkTurrets"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="turretMelee"/>
+			<display_entry name="RoundsPerMinute" title_key="statAttacksPerMinute" tags="turretMelee"/>
+			<display_entry name="DegradationMax" title_key="statDegradationHPMax" tags="perkTurrets"/>
+		</item_display_info>
+
+		<item_display_info display_type="rangedTurret" display_group="groupRanged">
+			<display_entry name="EntityDamage" title_key="statEntityDamageRanged" tags="perkTurrets"/>
+			<display_entry name="MagazineSize" title_key="statMagazineSize" tags="turretRanged"/>
+			<display_entry name="RoundsPerMinute" title_key="statRoundsPerMinute" tags="turretRanged"/>
+			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange" tags="perkTurrets"/>
+			<display_entry name="DegradationMax" title_key="statDegradationHPMax" tags="perkTurrets"/>
+		</item_display_info>
+
+		<item_display_info display_type="droneTurret" display_group="groupRanged">
+			<display_entry name="DegradationMax" title_key="statDegradationHPMax" tags="perkTurrets"/>
+		</item_display_info>
+
 		<item_display_info display_type="ammoBullet" display_group="groupAmmo">
-			<display_entry name="EntityDamage" title_key="statEntityDamageRanged"/>
-			<display_entry name="BlockDamage" title_key="statBlockDamage"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageRanged" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
 		</item_display_info>
-		<item_display_info display_type="ammoBulletFake" display_group="groupAmmo">
-			<display_entry name="dEntityDamage" title_key="statEntityDamageRanged"/>
-			<display_entry name="dBlockDamage" title_key="statBlockDamage"/>
-		</item_display_info>
+
 		<item_display_info display_type="ammoBulletAP" display_group="groupAmmo">
-			<display_entry name="EntityDamage" title_key="statEntityDamageRanged"/>
-			<display_entry name="dTargetArmor" title_key="statTargetArmor" display_type="Percent" display_leading_plus="true" negative_preferred="true"/>
-			<display_entry name="dTargetPenetration" title_key="statTargetPenetration"/>
-			<display_entry name="BlockDamage" title_key="statBlockDamage"/>
-			<display_entry name="dDegradationPerUse" title_key="statDegradationPerUse" display_type="Percent" display_leading_plus="true" negative_preferred="true"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageRanged" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="dTargetArmor" title_key="statTargetArmor" display_type="Percent" display_leading_plus="true" negative_preferred="true" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="dTargetPenetration" title_key="statTargetPenetration" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="dDegradationPerUse" title_key="statDegradationPerUse" display_type="Percent" display_leading_plus="true" negative_preferred="true" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
 		</item_display_info>
 		<item_display_info display_type="ammoBulletHP" display_group="groupAmmo">
-			<display_entry name="EntityDamage" title_key="statEntityDamageRanged"/>
-			<display_entry name="dTargetArmor" title_key="statTargetArmor" display_type="Percent" display_leading_plus="true" negative_preferred="true"/>
-			<display_entry name="BlockDamage" title_key="statBlockDamage"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageRanged" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="dTargetArmor" title_key="statTargetArmor" display_type="Percent" display_leading_plus="true" negative_preferred="true" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
 		</item_display_info>
 
 		<item_display_info display_type="ammoShotgun" display_group="groupAmmo">
-			<display_entry name="EntityDamage" title_key="statEntityDamageShotgun"/>
-			<display_entry name="RoundRayCount" title_key="statRoundRayCount"/>
-			<display_entry name="dTargetArmor" title_key="statTargetArmor" display_type="Percent" display_leading_plus="true" negative_preferred="true"/>
-			<display_entry name="BlockDamage" title_key="statBlockDamage"/>
-			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageShotgun" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="RoundRayCount" title_key="statRoundRayCount" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="dTargetArmor" title_key="statTargetArmor" display_type="Percent" display_leading_plus="true" negative_preferred="true" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
 		</item_display_info>
 		<item_display_info display_type="ammoShotgunSlug" display_group="groupAmmo">
-			<display_entry name="EntityDamage" title_key="statEntityDamageRanged"/>
-			<display_entry name="RoundRayCount" title_key="statRoundRayCount"/>
-			<display_entry name="dTargetArmor" title_key="statTargetArmor" display_type="Percent" display_leading_plus="true" negative_preferred="true"/>
-			<display_entry name="dTargetPenetration" title_key="statTargetPenetration"/>
-			<display_entry name="BlockDamage" title_key="statBlockDamage"/>
-			<display_entry name="dDegradationPerUse" title_key="statDegradationPerUse" display_type="Percent" display_leading_plus="true" negative_preferred="true"/>
-			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageRanged" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="RoundRayCount" title_key="statRoundRayCount" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="dTargetArmor" title_key="statTargetArmor" display_type="Percent" display_leading_plus="true" negative_preferred="true" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="dTargetPenetration" title_key="statTargetPenetration" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="dDegradationPerUse" title_key="statDegradationPerUse" display_type="Percent" display_leading_plus="true" negative_preferred="true" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
 		</item_display_info>
 		<item_display_info display_type="ammoShotgunBreaching" display_group="groupAmmo">
-			<display_entry name="EntityDamage" title_key="statEntityDamageShotgun"/>
-			<display_entry name="RoundRayCount" title_key="statRoundRayCount"/>
-			<display_entry name="BlockDamage" title_key="statBlockDamage"/>
-			<display_entry name="dDamageDoor" title_key="statBlockDamageDoor" display_leading_plus="true"/>
-			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageShotgun" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="RoundRayCount" title_key="statRoundRayCount" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="dDamageDoor" title_key="statBlockDamageDoor" display_leading_plus="true" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+		</item_display_info>
+
+		<item_display_info display_type="ammoJunkTurretRegular" display_group="groupAmmo">
+			<display_entry name="EntityDamage" title_key="statEntityDamageRanged" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+		</item_display_info>
+		<item_display_info display_type="ammoJunkTurretAP" display_group="groupAmmo">
+			<display_entry name="EntityDamage" title_key="statEntityDamageRanged" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="dTargetArmor" title_key="statTargetArmor" display_type="Percent" display_leading_plus="true" negative_preferred="true" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="dTargetPenetration" title_key="statTargetPenetration" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="dDegradationPerUse" title_key="statDegradationPerUse" display_type="Percent" display_leading_plus="true" negative_preferred="true" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="DamageFalloffRange" title_key="statDamageFalloffRange" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
 		</item_display_info>
 
 		<item_display_info display_type="ammoLauncher" display_group="groupAmmo">
-			<display_entry name="dExDamageEntity" title_key="statEntityDamageExplosion"/>
-			<display_entry name="dExDamageBlock" title_key="statBlockDamage"/>
-			<display_entry name="dExRadius" title_key="statExRadius"/>
+			<display_entry name="dExDamageEntity" title_key="statEntityDamageExplosion" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="dExDamageBlock" title_key="statBlockDamage" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="dExRadius" title_key="statExRadius" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
 		</item_display_info>
 		<item_display_info display_type="ammoArrow" display_group="groupAmmo">
-			<display_entry name="EntityDamage" title_key="statEntityDamageRanged"/>
-			<display_entry name="dTargetArmor" title_key="statTargetArmor" display_type="Percent" display_leading_plus="true" negative_preferred="true"/>
-			<display_entry name="BlockDamage" title_key="statBlockDamage"/>
-			<display_entry name="ProjectileVelocity" title_key="statProjectileVelocity"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageRanged" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="dTargetArmor" title_key="statTargetArmor" display_type="Percent" display_leading_plus="true" negative_preferred="true" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="ProjectileVelocity" title_key="statProjectileVelocity" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
 		</item_display_info>
 		<item_display_info display_type="ammoDart" display_group="groupAmmo">
-			<display_entry name="EntityDamage" title_key="statEntityDamageRanged"/>
-			<display_entry name="BlockDamage" title_key="statBlockDamage"/>
-			<display_entry name="ProjectileVelocity" title_key="statProjectileVelocity"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageRanged" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="ProjectileVelocity" title_key="statProjectileVelocity" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
 		</item_display_info>
 		<item_display_info display_type="ammoArrowFlaming" display_group="groupAmmo">
-			<display_entry name="EntityDamage" title_key="statEntityDamageRanged"/>
-			<display_entry name="BlockDamage" title_key="statBlockDamage"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamageRanged" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
 			<display_entry name="dEntityDamageFire" title_key="statEntityDamageFire"/>
 			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
-			<display_entry name="ProjectileVelocity" title_key="statProjectileVelocity"/>
+			<display_entry name="ProjectileVelocity" title_key="statProjectileVelocity" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
 		</item_display_info>
 		<item_display_info display_type="ammoArrowExploding" display_group="groupAmmo">
 			<display_entry name="dExDamageEntity" title_key="statEntityDamageExplosion"/>
 			<display_entry name="dExDamageBlock" title_key="statBlockDamage"/>
 			<display_entry name="dExRadius" title_key="statExRadius"/>
-			<display_entry name="ProjectileVelocity" title_key="statProjectileVelocity"/>
+			<display_entry name="ProjectileVelocity" title_key="statProjectileVelocity" tags="perkGunslinger,perkBoomstick,perkDeadEye,perkMachineGunner,perkBookAutoWeapons,perkTurrets,perkArchery,admin"/>
 		</item_display_info>
 
 		<item_display_info display_type="ammoGrenade" display_group="groupAmmo">
@@ -214,10 +269,12 @@
 		<item_display_info display_type="modTempResist" display_group="modAttire">
 			<display_entry name="HypothermalResist" title_key="statHypothermalResist" display_leading_plus="true"/>
 			<display_entry name="HyperthermalResist" title_key="statHyperthermalResist" display_leading_plus="true"/>
+			<display_entry name="ElementalDamageResist" title_key="statExplosionResistance" display_leading_plus="true" tags="heat,electrical"/>
 		</item_display_info>
 
 		<item_display_info display_type="modArmor" display_group="modAttire">
 			<display_entry name="PhysicalDamageResist" title_key="statPhysicalDamageResist" display_leading_plus="true"/>
+			<display_entry name="ElementalDamageResist" title_key="statExplosionResistance" display_leading_plus="true" tags="heat,electrical"/>
 		</item_display_info>
 
 		<item_display_info display_type="modArmorMobility" display_group="modAttire" >
@@ -231,7 +288,7 @@
 			<display_entry name="BuffResistance" title_key="statBuffResistance2" tags="buffInjuryStunned01"/>
 			<display_entry name="BuffResistance" title_key="statBuffResistance3" tags="buffInfectionCatch"/> -->
 			<display_entry name="PhysicalDamageResist" title_key="statPhysicalDamageResist"/>
-			<display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" tags="buffInfectionCatch,buffInjuryBleeding,buffInjuryStunned01"/>
+			<display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger" show_inverted="true"/>
 			<display_entry name="dStaminaChangeOT" title_key="statStaminaChangeOT" display_type="Decimal"/>
 			<display_entry name="Mobility" title_key="statMobility" display_type="Percent" show_inverted="true" negative_preferred="false"/>
 			<display_entry name="HypothermalResist" title_key="statHypothermalResist"/>
@@ -241,7 +298,8 @@
 
 		<item_display_info display_type="armorLight" display_group="groupAttire" >
 			<display_entry name="PhysicalDamageResist" title_key="statPhysicalDamageResistLight"/>
-			<display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" tags="buffInfectionCatch,buffInjuryBleeding,buffInjuryStunned01"/>
+			<display_entry name="ElementalDamageResist" title_key="statExplosionResistance" tags="heat,electrical"/>
+			<display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger" show_inverted="true"/>
 			<display_entry name="dStaminaChangeOT" title_key="statStaminaChangeOT" display_type="Decimal"/>
 			<display_entry name="Mobility" title_key="statMobility" display_type="Percent" show_inverted="true" negative_preferred="false"/>
 			<display_entry name="dNoiseMultiplier" title_key="statNoiseIncrease" display_type="Percent" show_inverted="false" negative_preferred="true"/>
@@ -250,7 +308,8 @@
 
 		<item_display_info display_type="armorLightStealth" display_group="groupAttire" >
 			<display_entry name="PhysicalDamageResist" title_key="statPhysicalDamageResistLight"/>
-			<display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" tags="buffInfectionCatch,buffInjuryBleeding,buffInjuryStunned01"/>
+			<display_entry name="ElementalDamageResist" title_key="statExplosionResistance" tags="heat,electrical"/>
+			<display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger" show_inverted="true"/>
 			<display_entry name="dStaminaChangeOT" title_key="statStaminaChangeOT" display_type="Decimal"/>
 			<display_entry name="Mobility" title_key="statMobility" display_type="Percent" show_inverted="true" negative_preferred="false"/>
 			<display_entry name="dNoiseMultiplier" title_key="statNoiseIncrease" display_type="Percent" show_inverted="false" negative_preferred="true"/>
@@ -259,17 +318,18 @@
 
 		<item_display_info display_type="armorLightTempResist" display_group="groupAttire" >
 			<display_entry name="PhysicalDamageResist" title_key="statPhysicalDamageResistLight"/>
-			<display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" tags="buffInfectionCatch,buffInjuryBleeding,buffInjuryStunned01"/>
+			<display_entry name="ElementalDamageResist" title_key="statExplosionResistance" tags="heat,electrical"/>
+			<display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger" show_inverted="true"/>
 			<display_entry name="dStaminaChangeOT" title_key="statStaminaChangeOT" display_type="Decimal"/>
 			<display_entry name="Mobility" title_key="statMobility" display_type="Percent" show_inverted="true" negative_preferred="false"/>
 			<display_entry name="HypothermalResist" title_key="statHypothermalResist"/>
-			<display_entry name="HyperthermalResist" title_key="statHyperthermalResist"/>
 			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="lightArmorDeg,admin"/>
 		</item_display_info>
 
 		<item_display_info display_type="armorHeavy" display_group="groupAttire" >
 			<display_entry name="PhysicalDamageResist" title_key="statPhysicalDamageResistHeavy"/>
-			<display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" tags="buffInfectionCatch,buffInjuryBleeding,buffInjuryStunned01"/>
+			<display_entry name="ElementalDamageResist" title_key="statExplosionResistance" tags="heat,electrical"/>
+			<display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger" show_inverted="true"/>
 			<display_entry name="dStaminaChangeOT" title_key="statStaminaChangeOT" display_type="Decimal"/>
 			<display_entry name="Mobility" title_key="statMobility" display_type="Percent" show_inverted="true" negative_preferred="false"/>
 			<display_entry name="dNoiseMultiplier" title_key="statNoiseIncrease" display_type="Percent" show_inverted="false" negative_preferred="true"/>
@@ -278,7 +338,7 @@
 
 		<item_display_info display_type="armorHeavyHeatResist" display_group="groupAttire" >
 			<display_entry name="PhysicalDamageResist" title_key="statPhysicalDamageResistHeavy"/>
-			<display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" tags="buffInfectionCatch,buffInjuryBleeding,buffInjuryStunned01"/>
+			<display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger" show_inverted="true"/>
 			<display_entry name="HyperthermalResist" title_key="statHyperthermalResist"/>
 			<display_entry name="dStaminaChangeOT" title_key="statStaminaChangeOT" display_type="Decimal"/>
 			<display_entry name="Mobility" title_key="statMobility" display_type="Percent" show_inverted="true" negative_preferred="false"/>
@@ -318,9 +378,12 @@
 		<item_display_info display_type="clothingShades" display_group="groupAttire">
 			<display_entry name="AttributeLevel" tags="attPerception" title_key="statShowPerception" display_leading_plus="true"/>
 		</item_display_info>
+		<item_display_info display_type="apparelToughGuySunglasses" display_group="groupAttire">
+			<display_entry name="AttributeLevel" tags="attFortitude" title_key="statShowFortitude" display_leading_plus="true"/>
+		</item_display_info>		
 		<item_display_info display_type="clothingAviatorGoggles" display_group="groupAttire">
 			<display_entry name="LootGamestage" title_key="statLootGamestage" display_leading_plus="true"/>
-			<display_entry name="dTreasureRadius" title_key="statTreasureRadius" display_leading_plus="true" negative_preferred="true"/>
+			<display_entry name="dTreasureBlocksPerReduction" title_key="statTreasureRadius" display_leading_plus="true" negative_preferred="true"/>
 		</item_display_info>
 		<item_display_info display_type="clothingSkiGoggles" display_group="groupAttire" >
 			<display_entry name="AttributeLevel" tags="attAgility" title_key="statShowAgility" display_leading_plus="true"/>
@@ -331,7 +394,12 @@
 			<display_entry name="dPlayerExpGain" title_key="statShowPlayerExpGain" display_type="Percent" display_leading_plus="true"/>
 		</item_display_info>
 		<item_display_info display_type="clothingBarter" display_group="groupAttire" >
-			<display_entry name="Bartering" title_key="statBartering" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="Bartering" title_key="statBarteringSellBuy" display_type="Percent" display_leading_plus="true"/>
+		</item_display_info>
+		<item_display_info display_type="clothingToughGuy" display_group="groupAttire" >
+			<display_entry name="HypothermalResist" title_key="statHypothermalResist"/>
+			<display_entry name="HyperthermalResist" title_key="statHyperthermalResist"/>
+			<display_entry name="dHealthMax" title_key="statHealthAmount" display_leading_plus="true"/>
 		</item_display_info>
 
 		<item_display_info display_type="clothingGhillie" display_group="groupAttire" >
@@ -348,7 +416,7 @@
 
 		<item_display_info display_type="clothingCigar" display_group="groupAttire" >
 			<display_entry name="AttributeLevel" tags="attStrength" title_key="statShowStrength" display_leading_plus="true"/>
-			<display_entry name="BarteringBuying" title_key="statBartering" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="BarteringBuying" title_key="statBarteringSellBuy" display_type="Percent" display_leading_plus="true"/>
 		</item_display_info>
 
 		<item_display_info display_type="water" display_group="groupConsumables">
@@ -366,6 +434,21 @@
 			<display_entry name="$waterAmountAdd" title_key="statWaterAmount"/>
 			<display_entry name="dStaminaRegen" title_key="statStaminaRegen" display_type="Percent"/>
 			<display_entry name="dCureDysentery" title_key="statCureDysentery" display_type="Percent"/>
+		</item_display_info>
+
+		<item_display_info display_type="waterRedTea" display_group="groupConsumables">
+			<display_entry name="$waterAmountAdd" title_key="statWaterAmount"/>
+			<display_entry name="dStaminaRegen" title_key="statStaminaRegen" display_type="Percent"/>
+			<display_entry name="dEfficientDigestion" title_key="statEfficientDigestion" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+		</item_display_info>
+
+		<item_display_info display_type="waterGoldenrodRedTea" display_group="groupConsumables">
+			<display_entry name="$waterAmountAdd" title_key="statWaterAmount"/>
+			<display_entry name="dStaminaRegen" title_key="statStaminaRegen" display_type="Percent"/>
+			<display_entry name="dCureDysentery" title_key="statCureDysentery" display_type="Percent"/>
+			<display_entry name="dEfficientDigestion" title_key="statEfficientDigestion" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
 		</item_display_info>
 
 		<item_display_info display_type="waterCoffee" display_group="groupConsumables">
@@ -390,7 +473,6 @@
 		</item_display_info>
 
 		<item_display_info display_type="waterGrandpasMoonshine" display_group="groupConsumables">
-			<display_entry name="dFortitude" title_key="statShowFortitude" display_leading_plus="true"/>
 			<display_entry name="dEntityDamage" title_key="statEntityDamageMelee" display_type="Percent" display_leading_plus="true"/>
 			<display_entry name="dStunResist" title_key="statStunResist" display_type="Percent" display_leading_plus="true"/>
 			<display_entry name="dHealthAmount" title_key="statHealthAmount" display_leading_plus="true"/>
@@ -409,23 +491,23 @@
 			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
 		</item_display_info>
 
-		<item_display_info display_type="waterRedTea" display_group="groupConsumables">
-			<display_entry name="$waterAmountAdd" title_key="statWaterAmount"/>
-			<display_entry name="dStaminaRegen" title_key="statStaminaRegen" display_type="Percent"/>
-			<display_entry name="dEfficientDigestion" title_key="statEfficientDigestion" display_type="Percent" display_leading_plus="true"/>
-			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
-		</item_display_info>
-
 		<item_display_info display_type="food" display_group="groupConsumables">
 			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
 			<display_entry name="foodHealthAmount" title_key="statHealthAmount"/>
-			<display_entry name="dFoodPoisoningRisk" title_key="statFoodPoisoningRisk" display_type="Percent" negative_preferred="true"/>
+			<display_entry name=".foodStaminaBonusAdd" title_key="statFoodStaminaBonus"/>
+		</item_display_info>
+
+		<item_display_info display_type="foodRaw" display_group="groupConsumables">
+			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
+			<display_entry name="foodHealthAmount" title_key="statHealthAmount"/>
+			<display_entry name="ddummyNoBonus" title_key="statFoodStaminaBonus" display_type="Bool"/>
+			<display_entry name="dDysenteryRisk" title_key="statDysenteryRisk" display_type="Percent" negative_preferred="true"/>
 		</item_display_info>
 
 		<item_display_info display_type="foodCureInfection" display_group="groupConsumables">
 			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
 			<display_entry name="foodHealthAmount" title_key="statHealthAmount"/>
-			<display_entry name="dFoodPoisoningRisk" title_key="statFoodPoisoningRisk" display_type="Percent" negative_preferred="true"/>
+			<display_entry name="ddummyNoBonus" title_key="statFoodStaminaBonus" display_type="Bool"/>
 			<display_entry name="dCureInfection" title_key="statCureInfection" display_type="Percent"/>
 		</item_display_info>
 
@@ -433,20 +515,27 @@
 			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
 			<display_entry name="foodHealthAmount" title_key="statHealthAmount"/>
 			<display_entry name="$waterAmountAdd" title_key="statWaterAmount"/>
-			<display_entry name="dFoodPoisoningRisk" title_key="statFoodPoisoningRisk" display_type="Percent" negative_preferred="true"/>
+			<display_entry name=".foodStaminaBonusAdd" title_key="statFoodStaminaBonus"/>
+		</item_display_info>
+
+		<item_display_info display_type="foodWaterRaw" display_group="groupConsumables">
+			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
+			<display_entry name="foodHealthAmount" title_key="statHealthAmount"/>
+			<display_entry name="$waterAmountAdd" title_key="statWaterAmount"/>
+			<display_entry name="ddummyNoBonus" title_key="statFoodStaminaBonus" display_type="Bool"/>
 		</item_display_info>
 
 		<item_display_info display_type="foodWaterNegative" display_group="groupConsumables">
 			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
 			<display_entry name="foodHealthAmount" title_key="statHealthAmount"/>
 			<display_entry name="$waterAmountAdd" title_key="statWaterAmount"/>
-			<display_entry name="dFoodPoisoningRisk" title_key="statFoodPoisoningRisk" display_type="Percent" negative_preferred="true"/>
+			<display_entry name=".foodStaminaBonusAdd" title_key="statFoodStaminaBonus"/>
 		</item_display_info>
 
 		<item_display_info display_type="foodShamChowder" display_group="groupConsumables">
 			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
 			<display_entry name="foodHealthAmount" title_key="statHealthAmount"/>
-			<display_entry name="dFoodPoisoningRisk" title_key="statFoodPoisoningRisk" display_type="Percent" negative_preferred="true"/>
+			<display_entry name=".foodStaminaBonusAdd" title_key="statFoodStaminaBonus"/>
 			<display_entry name="dFortitude" title_key="statShowFortitude" display_leading_plus="true"/>
 			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
 		</item_display_info>
@@ -454,7 +543,7 @@
 		<item_display_info display_type="foodPumpkinCheesecake" display_group="groupConsumables">
 			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
 			<display_entry name="foodHealthAmount" title_key="statHealthAmount"/>
-			<display_entry name="dFoodPoisoningRisk" title_key="statFoodPoisoningRisk" display_type="Percent" negative_preferred="true"/>
+			<display_entry name=".foodStaminaBonusAdd" title_key="statFoodStaminaBonus"/>
 			<display_entry name="dBartering" title_key="statBarteringBuy" display_type="Percent" display_leading_plus="true"/>
 			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
 		</item_display_info>
@@ -468,10 +557,10 @@
 			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
 		</item_display_info>
 
-		<item_display_info display_type="foodWaterOnly" display_group="groupConsumables">
+		<item_display_info display_type="foodWaterOnlyRaw" display_group="groupConsumables">
 			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
 			<display_entry name="$waterAmountAdd" title_key="statWaterAmount"/>
-			<display_entry name="dFoodPoisoningRisk" title_key="statFoodPoisoningRisk" display_type="Percent" negative_preferred="true"/>
+			<display_entry name="ddummyNoBonus" title_key="statFoodStaminaBonus" display_type="Bool"/>
 		</item_display_info>
 
 		<item_display_info display_type="cureInfection" display_group="groupConsumables">
@@ -479,53 +568,125 @@
 		</item_display_info>
 
 		<item_display_info display_type="medical" display_group="groupConsumables">
-			<display_entry name="maxHealthAmount" title_key="statMaxHealthAmount"/>
 			<display_entry name="foodHealthAmount" title_key="statHealthAmount"/>
-			<display_entry name="dStopsBleeding" title_key="statStopsBleeding" display_type="Bool"/>
+			<display_entry name="dhealAbrasionMult" title_key="statHealAbrasionMult" display_type="Percent"/>
+			<display_entry name="dStopsBleeding" title_key="statStopsBleeding" display_type="Percent"/>
+		</item_display_info>
+
+		<item_display_info display_type="medicalFirstAidKit" display_group="groupConsumables">
+			<display_entry name="foodHealthAmount" title_key="statHealthAmount"/>
+			<display_entry name="dhealAbrasionMult" title_key="statHealAbrasionMult" display_type="Percent"/>
+			<display_entry name="dStopsBleeding" title_key="statStopsBleeding" display_type="Percent"/>
+			<display_entry name="dStopsLaceration" title_key="statStopsLaceration" display_type="Percent"/>
 		</item_display_info>
 
 		<item_display_info display_type="medicalVitamins" display_group="groupConsumables">
-			<display_entry name="dDiseaseResist" title_key="statDiseaseResist" display_type="Percent" />
+			<display_entry name="dDiseaseResist" title_key="statDiseaseResist" display_type="Percent"/>
+			<display_entry name="dStopsWeakness" title_key="statStopsWeakness" display_type="Percent"/>
 			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
 		</item_display_info>
 
 		<item_display_info display_type="medicalPainkillers" display_group="groupConsumables">
 			<display_entry name="dInstantHealth" title_key="statShowInstantHealth"/>
 			<display_entry name="dHealthLoss" title_key="statHealthLoss" display_type="Percent" display_leading_plus="true"/>
-			<display_entry name="$waterAmountAdd" title_key="statWaterAmount"/>
 			<display_entry name="dStunResist" title_key="statStunResist" display_type="Percent" />
+			<display_entry name="dStopsConcussion" title_key="statStopsConcussion" display_type="Percent"/>
+			<display_entry name="$waterAmountAdd" title_key="statWaterAmount"/>
 			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
 		</item_display_info>
 
-		<item_display_info display_type="medicalWater" display_group="groupConsumables">
-			<display_entry name="maxHealthAmount" title_key="statMaxHealthAmount"/>
-			<display_entry name="medicalHealthAmount" title_key="statHealthAmount"/>
-			<display_entry name="$waterAmountAdd" title_key="statWaterAmount"/>
-			<display_entry name="staminaAmount" title_key="statStaminaAmount"/>
+		<item_display_info display_type="sewingKit" display_group="groupConsumables">
+			<display_entry name="dStopsBleeding" title_key="statStopsBleeding" display_type="Percent"/>
+			<display_entry name="dStopsLaceration" title_key="statStopsLaceration" display_type="Percent"/>
 		</item_display_info>
 
 		<item_display_info display_type="drugSteroids" display_group="groupConsumables">
-			<display_entry name="dStrength" title_key="statShowStrength" display_leading_plus="true"/>
 			<display_entry name="dCarryCapacity" title_key="statCarryCapacity" display_leading_plus="true"/>
+			<display_entry name="dRunSpeed" title_key="statRunSpeed" display_type="Percent" display_leading_plus="true"/>
 			<display_entry name="$waterAmountAdd" title_key="statWaterAmount"/>
 			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
 		</item_display_info>
 
 		<item_display_info display_type="drugRecog" display_group="groupConsumables">
-			<display_entry name="dPerception" title_key="statShowPerception" display_leading_plus="true"/>
 			<display_entry name="dEntityDamage" title_key="statEntityDamageRanged" display_type="Percent" display_leading_plus="true"/>
 			<display_entry name="$waterAmountAdd" title_key="statWaterAmount"/>
 			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
 		</item_display_info>
 
 		<item_display_info display_type="drugFortBites" display_group="groupConsumables">
-			<display_entry name="dFortitude" title_key="statShowFortitude" display_leading_plus="true"/>
-			<display_entry name="dMaxHealth" title_key="statShowMaxHealth" display_leading_plus="true"/>
-			<display_entry name="dPhysicalDamageResist" title_key="statPhysicalDamageResist" display_leading_plus="true"/>
-			<display_entry name="dHypothermalResist" title_key="statHypothermalResist" display_leading_plus="true"/>
-			<display_entry name="dHyperthermalResist" title_key="statHyperthermalResist" display_leading_plus="true"/>
+			<display_entry name="dHealthLoss" title_key="statHealthLoss" display_type="Percent" display_leading_plus="true"/>
 			<display_entry name="$waterAmountAdd" title_key="statWaterAmount"/>
 			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+		</item_display_info>
+
+		<item_display_info display_type="drugAtomJunkies" display_group="groupConsumables">
+			<display_entry name="dExDamageEntity" display_type="Percent" title_key="statEntityDamageExplosion" display_leading_plus="true"/>
+			<display_entry name="dExDamageBlock" display_type="Percent" title_key="statBlockDamageExplosion" display_leading_plus="true"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
+		</item_display_info>
+
+		<item_display_info display_type="drugCovertCats" display_group="groupConsumables">
+			<display_entry name="dEntityDamageSneak" title_key="statEntityDamageSneak" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
+		</item_display_info>
+
+		<item_display_info display_type="drugEyeKandy" display_group="groupConsumables">
+			<display_entry name="dLootGamestageFlat" title_key="statLootGamestage" display_leading_plus="true"/>
+			<display_entry name="dLootGamestagePerc" title_key="statLootGamestage" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
+		</item_display_info>
+
+		<item_display_info display_type="drugHackers" display_group="groupConsumables">
+			<display_entry name="dHarvestSalvage" title_key="statHarvestSalvage" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
+		</item_display_info>
+
+		<item_display_info display_type="drugHealthBar" display_group="groupConsumables">
+			<display_entry name="dMaxHealthBonus" title_key="statMaxHealthBonus" display_leading_plus="true"/>
+			<display_entry name="dBuffResistance" title_key="statBuffResistance" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="dNaturalCritHealing" title_key="statNaturalCritHealing" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
+		</item_display_info>
+
+		<item_display_info display_type="drugJailBreakers" display_group="groupConsumables">
+			<display_entry name="dLockpickSuccess" title_key="statLockpickSuccess" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
+		</item_display_info>
+
+		<item_display_info display_type="drugNerdTats" display_group="groupConsumables">
+			<display_entry name="dShockAOERadius" title_key="statShockAOERadius" display_type="Decimal"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
+		</item_display_info>
+
+		<item_display_info display_type="drugOhShitzDrops" display_group="groupConsumables">
+			<display_entry name="dFallDamage" title_key="statFallDamage" display_type="Percent"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
+		</item_display_info>
+
+		<item_display_info display_type="drugRockBusters" display_group="groupConsumables">
+			<display_entry name="dHarvestMining" title_key="statHarvestMining" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
+		</item_display_info>
+
+		<item_display_info display_type="drugSkullCrushers" display_group="groupConsumables">
+			<display_entry name="dEntityDamage" title_key="statEntityDamageMelee" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
+		</item_display_info>
+
+		<item_display_info display_type="drugSugarButts" display_group="groupConsumables">
+			<display_entry name="dBarteringSellBuy" title_key="statBarteringSellBuy" display_type="Percent" display_leading_plus="true"/>
+			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
+			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
 		</item_display_info>
 
 		<!-- UNODIR every block will show this display -->
@@ -550,7 +711,7 @@
 			<display_entry name="Mass" title_key="statMass" negative_preferred="true"/>
 			<display_entry name="StabilityGlue" title_key="statStabilityGlue"/>
 			<display_entry name="MaxDamage" title_key="statMaxDamage"/>
-			<display_entry name="ExplosionResistance" title_key="statExplosionResistance" display_type="Percent"/>
+			<display_entry name="ExplosionResistance" title_key="statExplosionResistance" display_type="Percent" show_inverted="true"/>
 			<display_entry name="StabilitySupport" title_key="statStabilitySupport" display_type="Bool"/>
 			<display_entry name="LightOpacity" title_key="statLightOpacity"/>
 		</item_display_info>
@@ -559,7 +720,7 @@
 			<display_entry name="Mass" title_key="statMassMultiblock" negative_preferred="true"/>
 			<display_entry name="StabilityGlue" title_key="statStabilityGlue"/>
 			<display_entry name="MaxDamage" title_key="statMaxDamage"/>
-			<display_entry name="ExplosionResistance" title_key="statExplosionResistance" display_type="Percent"/>
+			<display_entry name="ExplosionResistance" title_key="statExplosionResistance" display_type="Percent" show_inverted="true"/>
 			<display_entry name="StabilitySupport" title_key="statStabilitySupport" display_type="Bool"/>
 			<display_entry name="LightOpacity" title_key="statLightOpacity"/>
 		</item_display_info>
@@ -584,7 +745,7 @@
 			<display_entry name="Mass" title_key="statMass" negative_preferred="true"/>
 			<display_entry name="StabilityGlue" title_key="statStabilityGlue"/>
 			<display_entry name="MaxDamage" title_key="statMaxDamage"/>
-			<display_entry name="ExplosionResistance" title_key="statExplosionResistance" display_type="Percent"/>
+			<display_entry name="ExplosionResistance" title_key="statExplosionResistance" display_type="Percent" show_inverted="true"/>
 			<display_entry name="StabilitySupport" title_key="statStabilitySupport" display_type="Bool"/>
 			<display_entry name="canShootThrough" title_key="statCanShootThrough" display_type="Bool"/>
 			<display_entry name="LightOpacity" title_key="statLightOpacity"/>
@@ -603,7 +764,7 @@
 			<display_entry name="Mass" title_key="statMass" negative_preferred="true"/>
 			<display_entry name="StabilityGlue" title_key="statStabilityGlue"/>
 			<display_entry name="MaxDamage" title_key="statMaxDamage"/>
-			<display_entry name="ExplosionResistance" title_key="statExplosionResistance" display_type="Percent"/>
+			<display_entry name="ExplosionResistance" title_key="statExplosionResistance" display_type="Percent" show_inverted="true"/>
 			<display_entry name="StabilitySupport" title_key="statStabilitySupport" display_type="Bool"/>
 			<display_entry name="LightOpacity" title_key="statLightOpacity"/>
 			<display_entry name="RequiredPower" title_key="statRequiredPower"/>
@@ -622,7 +783,7 @@
 			<display_entry name="Mass" title_key="statMassMultiblock" negative_preferred="true"/>
 			<display_entry name="StabilityGlue" title_key="statStabilityGlue"/>
 			<display_entry name="MaxDamage" title_key="statMaxDamage"/>
-			<display_entry name="ExplosionResistance" title_key="statExplosionResistance" display_type="Percent"/>
+			<display_entry name="ExplosionResistance" title_key="statExplosionResistance" display_type="Percent" show_inverted="true"/>
 			<display_entry name="StabilitySupport" title_key="statStabilitySupport" display_type="Bool"/>
 			<display_entry name="LightOpacity" title_key="statLightOpacity"/>
 			<display_entry name="RequiredPower" title_key="statRequiredPower"/>
@@ -645,7 +806,7 @@
 			<display_entry name="Mass" title_key="statMass" negative_preferred="true"/>
 			<display_entry name="StabilityGlue" title_key="statStabilityGlue"/>
 			<display_entry name="MaxDamage" title_key="statMaxDamage"/>
-			<display_entry name="ExplosionResistance" title_key="statExplosionResistance" display_type="Percent"/>
+			<display_entry name="ExplosionResistance" title_key="statExplosionResistance" display_type="Percent" show_inverted="true"/>
 		</item_display_info>
 
 		<item_display_info display_type="toolAnvil" display_group="workstationTools">
@@ -658,8 +819,13 @@
 	</item_display>
 
 	<character_stat_display>
+		<display_entry name="HealthMaxBlockage" title_key="statHealthMaxBlockage"/>
+		<display_entry name="StaminaMaxBlockage" title_key="statStaminaMaxBlockage"/>
 		<display_entry name="PhysicalDamageResist" title_key="statPhysicalDamageResist"/>
-		<display_entry name="StaminaChangeOT" title_key="statStaminaChangeOT"/>
+		<display_entry name="ElementalDamageResist" title_key="statExplosionResistance" tags="heat,electrical"/>
+		<display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" show_inverted="true" tags="buffLaceration"/>
+		<!-- <display_entry name="BuffResistance" title_key="total crit resist" display_type="Percent" tags="buffLaceration"/>-->
+		<display_entry name="StaminaChangeOT" title_key="statStaminaChangeOT" display_type="Decimal"/>
 		<display_entry name="HealthChangeOT" title_key="statHealthChangeOT" display_type="Decimal"/>
 		<display_entry name="HealthMaxModifierOT" title_key="statHealthMaxModifierOT" display_type="Decimal"/>
 		<display_entry name="HypothermalResist" title_key="statHypothermalResist"/>
@@ -667,15 +833,19 @@
 		<display_entry name="Mobility" title_key="statMobility" display_type="Percent"/>
 		<display_entry name="JumpStrength" title_key="statJumpStrength" display_type="Percent"/>
 		<display_entry name="CarryCapacity" title_key="statCarryCapacity"/>
+		<!--
 		<display_entry name="LootGamestage" title_key="statLootGamestage"/>
 		<display_entry name="TreasureRadius" title_key="statTreasureRadius"/>
-		<!-- <display_entry name="CraftingTier" title_key="statCraftingTier"/>-->
-		<display_entry name="PlayerExpGain" title_key="statPlayerExpGain" display_type="Percent"/>
+		<display_entry name="CraftingTier" title_key="statCraftingTier"/>
+		<display_entry name="PlayerExpGain" title_key="statPlayerExpGain" display_type="Percent"/>-->
 		<display_entry name="EntityDamage" title_key="statEntityDamage"/>
 		<display_entry name="BlockDamage" title_key="statBlockDamage"/>
 		<display_entry name="RoundsPerMinute" title_key="statRoundsPerMinute"/>
 		<display_entry name="AttacksPerMinute" title_key="statAttacksPerMinute"/>
+
 		<!--
+		<display_entry name="HealthChangeOT" title_key="statJumpStrength" display_type="Percent"/>
+
 		<display_entry name="BuffResistance" title_key="statArmorResistStun" display_type="Percent"/>
 		<display_entry name="BuffResistance" title_key="statArmorResistBleed" display_type="Percent" tags="buffInjuryBleeding"/>
 		<display_entry name="BuffResistance" title_key="statArmorResistInfection" display_type="Percent" tags="buffInfectionCatch"/>
@@ -768,7 +938,7 @@ It can also display CVARS that are added when using the item with these exact 2 
 onSelfPrimaryActionEnd
 onSelfSecondaryActionEnd
 
-<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="medicalHealthAmount" operation="add" value="14"/>
+<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="medicalRegHealthAmount" operation="add" value="14"/>
 
 The "name" is the name of the cvar.
 

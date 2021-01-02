@@ -42,7 +42,7 @@ Textures we might want for (terrain) imposters
 <paint id="0" name="txName_Delete">
 	<property name="TextureId" value="0" />
 	<property name="Group" value="txGroupExcluded" />
-	<property name="Hidden" value="false" /> <!-- This flag does nothing in creative mode / editor. All paint IDs will show. -->
+	<property name="Hidden" value="true" /> <!-- This flag does nothing in creative mode / editor. All paint IDs will show. -->
 </paint>
 
 <paint id="1" name="txName_Brick">
@@ -382,7 +382,7 @@ Textures we might want for (terrain) imposters
 	<property name="PaintCost" value="1" />
 </paint>
 
-<paint id="57" name="txName_Corregated_metal">
+<paint id="57" name="txName_Corrugated_metal">
 	<property name="TextureId" value="194"/>
 	<property name="Group" value="txGroupMetal"/>
 	<property name="PaintCost" value="3" />
@@ -490,7 +490,17 @@ Textures we might want for (terrain) imposters
 	<property name="PaintCost" value="1" />
 </paint>
 
-<!-- free -->
+<paint id="75" name="txName_wood_floor_polished">
+	<property name="TextureId" value="603"/>
+	<property name="Group" value="txGroupWood"/>
+	<property name="PaintCost" value="1" />
+</paint>
+
+<paint id="76" name="txName_concrete_wall">
+	<property name="TextureId" value="604"/>
+	<property name="Group" value="txGroupMasonry"/>
+	<property name="PaintCost" value="1" />
+</paint>
 
 <paint id="77" name="txName_Fridge_stainless_side">
 	<property name="TextureId" value="267"/>
@@ -811,7 +821,12 @@ Textures we might want for (terrain) imposters
 	<property name="Group" value="txGroupDecoration"/>
 	<property name="PaintCost" value="1" />
 </paint>
-<!-- 133 free -->
+
+<paint id="133" name="txName_beige_metal_roof_wStripes">
+  <property name="TextureId" value="605"/>
+  <property name="Group" value="txGroupMetal"/>
+  <property name="PaintCost" value="3" />
+</paint>
 
 <paint id="134" name="txName_Tile_floor6">
 	<property name="TextureId" value="589"/>
@@ -1096,6 +1111,18 @@ Textures we might want for (terrain) imposters
 	<property name="TextureId" value="602"/>
 	<property name="Group" value="txGroupWood"/>
 	<property name="PaintCost" value="1" />
+</paint>
+
+<paint id="182" name="txName_concrete_broken">
+  <property name="TextureId" value="606"/>
+  <property name="Group" value="txGroupMasonry"/>
+  <property name="PaintCost" value="1" />
+</paint>
+
+<paint id="183" name="txName_metal_roof">
+  <property name="TextureId" value="607"/>
+  <property name="Group" value="txGroupMetal"/>
+  <property name="PaintCost" value="1" />
 </paint>
 
 <!-- Localised up to here -->

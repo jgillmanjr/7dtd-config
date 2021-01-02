@@ -1,5 +1,5 @@
 <npc>
-
+<!-- trader ids 3,4 and 5 are taken by vending machines -->
 	<npc_info
 		id="traitorjoel"
 		name="Traitor Joel"
@@ -9,16 +9,25 @@
 		greeting_type="nearby"
 		stance="Like" voice_set="trader"
 		trader_id="1" dialog_id="trader" />
+	<npc_info
+		id="traderjen"
+		name="Trader Jen"
+		name_key="npc_traderJen"
+		faction="whiteriver"
+		portrait="npc_jen"
+		greeting_type="nearby"
+		stance="Like" voice_set="trader_jen"
+		trader_id="2" dialog_id="trader" />
 
 	<npc_info
-		id="traderrekt"
-		name="Traitor Rekt"
-		name_key="npc_traderRekt"
+		id="traderbob"
+		name="Trader Bob"
+		name_key="npc_traderBob"
 		faction="whiteriver"
-		portrait="npc_rekt"
+		portrait="npc_bob"
 		greeting_type="nearby"
-		stance="Dislike" voice_set="trader"
-		trader_id="1" dialog_id="trader" />
+		stance="Like" voice_set="trader"
+		trader_id="6" dialog_id="trader" />
 
 	<npc_info
 		id="traderhugh"
@@ -28,28 +37,20 @@
 		portrait="npc_hugh"
 		greeting_type="nearby"
 		stance="Neutral" voice_set="trader"
-		trader_id="1" dialog_id="trader" />
-		
+		trader_id="7" dialog_id="trader" />
+
+
 	<npc_info
-		id="traderjen"
-		name="Trader Jen"
-		name_key="npc_traderJen"
+		id="traderrekt"
+		name="Traitor Rekt"
+		name_key="npc_traderRekt"
 		faction="whiteriver"
-		portrait="npc_jen"
+		portrait="npc_rekt"
 		greeting_type="nearby"
-		stance="Like" voice_set="trader_jen"
-		trader_id="1" dialog_id="trader" />
-		
-	<npc_info
-		id="traderbob"
-		name="Trader Bob"
-		name_key="npc_traderBob"
-		faction="whiteriver"
-		portrait="npc_bob"
-		greeting_type="nearby"
-		stance="Like" voice_set="trader"
-		trader_id="1" dialog_id="trader" />
-		
+		stance="Dislike" voice_set="trader"
+		trader_id="8" dialog_id="trader" />
+
+
 	<npc_info
 		id="traderTest"
 		name="Trader Test"
@@ -57,13 +58,22 @@
 		faction="whiteriver"
 		portrait="npc_joel"
 		greeting_type="nearby"
-		trader_id="1" 
+		trader_id="1"
 		stance="Like" voice_set="trader"
 		dialog_id="traderTest"
 		quest_list="test_quests" />
 
-	
-		
+	<npc_info
+		id="NPCjunkDrone"
+		name="Junk Drone"
+		name_key="npc_junkDrone"
+		faction="trader"
+		portrait="npc_joel"
+		greeting_type="nearby"
+		dialog_id="junkDrone"
+		stance="Like" voice_set="trader"
+		trader_id="1"/>
+
 	<factions>
 		<faction name="none">
 			<relationship name="*" value="neutral"/>
